@@ -9,7 +9,8 @@ matches its description; read its references only when the skill's workflow poin
 | Skill | Use it for |
 |---|---|
 | `skills/mobile-code-review` | Reviewing Kotlin, Java, Swift and Dart diffs: correctness, concurrency, leaks, UI performance |
-| `skills/mobile-security` | OWASP MASVS v2 and Mobile Top 10 audits, secure storage, TLS, IPC, GDPR / CRA / EN 18031 notes |
+| `skills/mobile-security` | OWASP MASVS v2 and Mobile Top 10 audits, secure storage, TLS, IPC, WebViews, privacy |
+| `skills/mobile-eu-compliance` | CRA, RED delegated act / EN 18031 and GDPR gap reports for apps and companion apps |
 | `skills/mobile-ci-cd` | GitHub Actions and GitLab CI for Android, iOS and Flutter, signing, store upload, pipeline hardening |
 | `skills/mobile-merge-request` | Branch naming, Conventional Commits, MR descriptions, rebasing, conflicts, review etiquette |
 | `skills/mobile-mvvm` | MVVM with Compose + StateFlow, LiveData, SwiftUI + @Observable, Riverpod |

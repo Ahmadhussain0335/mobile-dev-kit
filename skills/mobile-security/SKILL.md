@@ -34,8 +34,8 @@ Not for: general code quality or concurrency review (use `mobile-code-review`), 
    - Which backends and devices are under the developer's control (relevant for pinning and attestation).
 2. Inventory the attack surface and load the matching references:
    [Android](references/android.md), [iOS](references/ios.md), [Flutter](references/flutter.md),
-   [MASVS controls and Top 10 map](references/masvs-map.md),
-   [EU compliance notes](references/eu-compliance.md) for EU-market or IoT products.
+   [MASVS controls and Top 10 map](references/masvs-map.md).
+   For CRA, RED delegated act / EN 18031 or GDPR questions, hand the findings to `mobile-eu-compliance`.
    - Android: merged release manifest, network security config, backup rules, release build type, catalogs.
    - iOS: `Info.plist`, entitlements, `PrivacyInfo.xcprivacy`, `.xcconfig`, lock files. Flutter: both of these.
 3. Run the quick-scan patterns from the references. Each hit is a candidate, not a finding.
@@ -430,7 +430,7 @@ Threat model: <assets, attackers considered>.
 - <modules, flavors or SDKs out of scope>
 
 ### Compliance notes (if EU market or IoT)
-- <GDPR / CRA / RED DA EN 18031 points, see references/eu-compliance.md>
+- <findings relevant to the CRA, EN 18031 or GDPR; map them with `mobile-eu-compliance`>
 ~~~
 
 Rules for the report:
@@ -440,6 +440,7 @@ Rules for the report:
 
 ## Related skills
 
+- `mobile-eu-compliance` -- maps these findings to CRA, RED / EN 18031 and GDPR requirements
 - `mobile-code-review` -- general correctness, concurrency and lifecycle review
 - `mobile-ci-cd` -- wiring dependency scanning, SBOM generation and signing into the pipeline
 - `mobile-kotlin`, `mobile-java`, `mobile-swift`, `mobile-flutter` -- platform idioms behind the fixes

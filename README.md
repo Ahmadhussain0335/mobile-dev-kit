@@ -17,6 +17,7 @@ matters, an output format. The skill content is identical in every tool; only th
 |---|---|
 | [`mobile-code-review`](skills/mobile-code-review/SKILL.md) | Reviews Kotlin, Java, Swift and Dart diffs for correctness, concurrency, leaks, UI performance, architecture, tests, accessibility and i18n, with Blocker/Major/Minor/Nit findings and a verdict |
 | [`mobile-security`](skills/mobile-security/SKILL.md) | Audits against OWASP MASVS v2 and Mobile Top 10 2024: storage, crypto, auth, network, IPC, WebViews, privacy, plus GDPR, Cyber Resilience Act and EN 18031 notes |
+| [`mobile-eu-compliance`](skills/mobile-eu-compliance/SKILL.md) | Gap reports against the EU Cyber Resilience Act, the RED delegated act with EN 18031 and GDPR for apps and connected-device companion apps; engineering guidance, not legal advice |
 | [`mobile-ci-cd`](skills/mobile-ci-cd/SKILL.md) | GitHub Actions and GitLab CI for Android, iOS and Flutter: signing, store upload, caching, SHA-pinned actions, secret hygiene |
 | [`mobile-merge-request`](skills/mobile-merge-request/SKILL.md) | Branch naming, Conventional Commits, MR descriptions, stacked MRs, rebasing, conflict resolution, review etiquette |
 | [`mobile-mvvm`](skills/mobile-mvvm/SKILL.md) | MVVM with Compose and StateFlow, LiveData, SwiftUI with `@Observable`, Riverpod; when to pick MVVM, MVI or MVC |

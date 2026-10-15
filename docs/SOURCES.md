@@ -81,3 +81,24 @@ Last checked: 2026-10-15 (manifests rechecked before the pre-launch changes).
 |---|---|
 | Claude.ai skill packaging (`<skill>/SKILL.md` as the top-level folder of the zip) | https://claude.com/docs/skills/how-to.md |
 | OpenAI skills bundles (one top-level folder, one `SKILL.md` per bundle) | https://developers.openai.com/api/docs/guides/tools-skills |
+
+## EU law and standards (used by `mobile-eu-compliance`)
+
+Texts were read from the Official Journal versions served by the EU Publications Office
+(`http://publications.europa.eu/resource/celex/<CELEX>`), the same documents EUR-Lex shows.
+
+| Act | Used for | URL |
+|---|---|---|
+| Regulation (EU) 2024/2847, Cyber Resilience Act (CELEX 32024R2847) | Art. 2, 3, 7, 13, 14, 32, 71; Annexes I, II, III, IV, VII | https://eur-lex.europa.eu/eli/reg/2024/2847/oj/eng |
+| European Commission, Cyber Resilience Act policy page | Dates as communicated by the Commission | https://digital-strategy.ec.europa.eu/en/policies/cyber-resilience-act |
+| Delegated Regulation (EU) 2022/30 (CELEX 32022R0030) | RED Art. 3(3)(d), (e), (f) scope and exclusions | https://eur-lex.europa.eu/eli/reg_del/2022/30/oj/eng |
+| Delegated Regulation (EU) 2023/2444 (CELEX 32023R2444) | Application date moved to 1 August 2025 | https://eur-lex.europa.eu/eli/reg_del/2023/2444/oj/eng |
+| Implementing Decision (EU) 2025/138 (CELEX 32025D0138) | EN 18031-1/-2/-3:2024 citations and restrictions | https://eur-lex.europa.eu/eli/dec_impl/2025/138/oj/eng |
+| Regulation (EU) 2016/679, GDPR (CELEX 32016R0679) | Recital 30; Art. 5-9, 12-21, 25, 28, 30, 32-35, 44 | https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng |
+| Directive 2002/58/EC as amended, ePrivacy (consolidated CELEX 02002L0058-20091219) | Art. 5(3) | https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:02002L0058-20091219 |
+| ETSI EN 303 645 deliverables (latest V3.1.3) | Consumer IoT baseline provisions | https://www.etsi.org/deliver/etsi_en/303600_303699/303645/ |
+| ETSI TS 103 701 deliverables (latest V2.1.1) | Assessment specification for EN 303 645 | https://www.etsi.org/deliver/etsi_ts/103700_103799/103701/ |
+
+Could not be verified from an official source: whether a BLE device that reaches the internet only through a
+companion app is "internet-connected radio equipment" under Delegated Regulation (EU) 2022/30. The skill
+records this as an open question.

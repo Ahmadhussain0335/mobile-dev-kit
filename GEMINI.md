@@ -5,7 +5,8 @@ Activate a skill when the task matches its description; read a skill's `referenc
 its workflow says to.
 
 - `mobile-code-review` -- review Kotlin, Java, Swift and Dart code and diffs
-- `mobile-security` -- OWASP MASVS v2 audits, secure storage, TLS, IPC, EU compliance notes
+- `mobile-security` -- OWASP MASVS v2 audits, secure storage, TLS, IPC
+- `mobile-eu-compliance` -- CRA, EN 18031 and GDPR gap reports (not legal advice)
 - `mobile-ci-cd` -- GitHub Actions and GitLab CI pipelines, signing, store upload
 - `mobile-merge-request` -- branches, Conventional Commits, MR descriptions, conflict resolution
 - `mobile-mvvm` -- MVVM on Android, iOS and Flutter

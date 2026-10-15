@@ -145,7 +145,7 @@ void validateSkill(Directory dir, Set<String> skillNames, Report report) {
   }
 
   checkProductNames(body, where, report);
-  checkLinks(dir, body, where, report);
+  checkLinks(dir, dir, body, where, report);
   checkRelatedSkills(body, folder, skillNames, where, report);
   checkOrphanReferences(dir, body, where, report);
 
@@ -156,7 +156,7 @@ void validateSkill(Directory dir, Set<String> skillNames, Report report) {
     final rel = p.relative(file.path, from: p.dirname(dir.path));
     final content = file.readAsStringSync();
     checkProductNames(content, rel, report);
-    checkLinks(file.parent, content, rel, report);
+    checkLinks(dir, file.parent, content, rel, report);
   }
 }
 
@@ -289,7 +289,13 @@ void checkProductNames(String markdown, String where, Report report) {
   }
 }
 
-void checkLinks(Directory base, String markdown, String where, Report report) {
+void checkLinks(
+  Directory skillDir,
+  Directory base,
+  String markdown,
+  String where,
+  Report report,
+) {
   for (final match in markdownLink.allMatches(stripCode(markdown))) {
     final target = match.group(1)!;
     if (target.startsWith('http://') ||
@@ -299,7 +305,14 @@ void checkLinks(Directory base, String markdown, String where, Report report) {
       continue;
     }
     final path = target.split('#').first;
-    if (!File(p.normalize(p.join(base.path, path))).existsSync()) {
+    final resolved = p.normalize(p.join(base.path, path));
+    if (!p.isWithin(p.normalize(skillDir.path), resolved)) {
+      report.error(
+        where,
+        'link "$target" leaves the skill folder; it breaks when one skill '
+        'is installed alone. Refer to other skills by name instead',
+      );
+    } else if (!File(resolved).existsSync()) {
       report.error(where, 'broken link "$target"');
     }
   }
