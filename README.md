@@ -1,12 +1,15 @@
 # mobile-dev-kit
 
-Twelve Agent Skills for Android, iOS and Flutter developers, packaged once and installable in every major AI
+Agent Skills for Android, iOS and Flutter teams, packaged once and installable in every major AI
 coding tool: Claude Code, Claude.ai, OpenAI Codex, ChatGPT, Gemini CLI, Google Antigravity, GitHub Copilot,
 Cursor and Windsurf.
 
 Each skill is a plain `SKILL.md` file in the open [Agent Skills](https://agentskills.io) format, with a
 workflow, rules with bad and good examples in Kotlin, Java, Swift and Dart, a checklist and, where it
 matters, an output format. The skill content is identical in every tool; only thin manifests differ.
+
+**Release status:** pre-release. Installing from GitHub works now; the release zips, `npx mobile-dev-kit` and
+`dart install mobile_dev_kit` are available from v1.0.0.
 
 ## Skills
 
@@ -39,6 +42,8 @@ claude plugin install mobile-dev-kit@ahmadhussain-mobile
 
 ### Claude.ai
 
+Available from v1.0.0.
+
 Download the `<skill>.zip` files you want from the
 [latest release](https://github.com/Ahmadhussain0335/mobile-dev-kit/releases/latest), then upload each one
 under **Customize > Skills** and turn it on.
@@ -49,10 +54,12 @@ under **Customize > Skills** and turn it on.
 codex plugin marketplace add Ahmadhussain0335/mobile-dev-kit
 ```
 
-Then install **Mobile Dev Kit** from the plugin directory. To copy the skills only:
+Then install **Mobile Dev Kit** from the plugin directory. To copy the skills only (available from v1.0.0):
 `npx mobile-dev-kit install --tool codex`.
 
 ### ChatGPT
+
+Available from v1.0.0.
 
 Download the `<skill>.zip` files from the
 [latest release](https://github.com/Ahmadhussain0335/mobile-dev-kit/releases/latest) and upload them as
@@ -65,6 +72,8 @@ gemini extensions install https://github.com/Ahmadhussain0335/mobile-dev-kit
 ```
 
 ### Google Antigravity
+
+Available from v1.0.0.
 
 ```sh
 npx mobile-dev-kit install --tool antigravity            # this workspace
@@ -79,7 +88,7 @@ Copilot CLI:
 copilot plugin install Ahmadhussain0335/mobile-dev-kit
 ```
 
-Copilot in the editor and the cloud agent read `.github/skills`:
+Copilot in the editor and the cloud agent read `.github/skills` (available from v1.0.0):
 `npx mobile-dev-kit install --tool copilot`.
 
 ### Cursor
@@ -91,6 +100,8 @@ npx mobile-dev-kit install --tool cursor
 ```
 
 ### Windsurf
+
+Available from v1.0.0.
 
 ```sh
 npx mobile-dev-kit install --tool windsurf
@@ -104,12 +115,16 @@ npx skills add Ahmadhussain0335/mobile-dev-kit
 
 ### Dart CLI (pub.dev)
 
+Available from v1.0.0.
+
 ```sh
 dart install mobile_dev_kit      # Dart 3.10+; older SDKs: dart pub global activate mobile_dev_kit
 mobile_dev_kit install
 ```
 
 ### npm CLI
+
+Available from v1.0.0.
 
 ```sh
 npx mobile-dev-kit install       # or: npm install -g mobile-dev-kit
