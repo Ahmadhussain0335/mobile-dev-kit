@@ -66,3 +66,17 @@ Last checked: 2026-10-15.
 | Topic | URL |
 |---|---|
 | CLI distribution (`dart install`, AOT, `executables:`) | https://dart.dev/tools/cli-distribution |
+| Automated publishing from GitHub Actions (OIDC, tag pattern, environments) | https://dart.dev/tools/pub/automated-publishing |
+
+## npm
+
+| Topic | URL |
+|---|---|
+| Trusted publishing with GitHub Actions (OIDC, automatic provenance, npm 11.5.1+) | https://docs.npmjs.com/trusted-publishers |
+
+## Skill zip uploads
+
+| Topic | URL |
+|---|---|
+| Claude.ai skill packaging (`<skill>/SKILL.md` as the top-level folder of the zip) | https://claude.com/docs/skills/how-to.md |
+| OpenAI skills bundles (one top-level folder, one `SKILL.md` per bundle) | https://developers.openai.com/api/docs/guides/tools-skills |
