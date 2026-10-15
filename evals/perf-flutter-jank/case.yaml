@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: perf-flutter-jank
+context:
+  add_dirs: [fixture]

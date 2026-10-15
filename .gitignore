@@ -19,3 +19,6 @@ mobile-dev-kit-prompt.md
 
 # Dart package lockfile (libraries do not commit it)
 packages/dart/pubspec.lock
+
+# Eval run output
+evals/results/
