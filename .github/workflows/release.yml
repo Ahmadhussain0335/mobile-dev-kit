@@ -1,0 +1,132 @@
+# Runs on a version tag such as v1.2.3. The tag must match every version in
+# the repository (scripts/check_versions.dart). Publishing uses OIDC trusted
+# publishing; no registry tokens are stored in the repository.
+#
+# One-time setup (see docs/INSTALL.md, "Maintainer: releasing"):
+# - pub.dev: package Admin tab -> Automated publishing -> repository
+#   Ahmadhussain0335/mobile-dev-kit, tag pattern v{{version}}, require
+#   environment "pub.dev".
+# - npmjs.com: package Settings -> Trusted Publisher -> GitHub Actions,
+#   workflow release.yml, environment "npm".
+# - GitHub: create environments "pub.dev" and "npm" with required reviewers.
+name: Release
+
+on:
+  push:
+    tags: ['v[0-9]+.[0-9]+.[0-9]+']
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    name: Verify
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: dart-lang/setup-dart@6afc89df92d6eb3834022f73cd65adc8cdfcb92d # v1.8.1
+        with:
+          sdk: stable
+      - run: dart pub get
+        working-directory: scripts
+      - run: dart run scripts/validate_skills.dart
+      - run: dart run scripts/check_versions.dart
+      - name: Check the tag matches the version
+        env:
+          TAG: ${{ github.ref_name }}
+        run: |
+          version="$(sed -n 's/^version: *//p' packages/dart/pubspec.yaml)"
+          if [ "v$version" != "$TAG" ]; then
+            echo "::error::Tag $TAG does not match version $version"
+            exit 1
+          fi
+      - name: Check the CHANGELOG has a section for this version
+        env:
+          TAG: ${{ github.ref_name }}
+        run: grep -q "^## ${TAG#v}\$" CHANGELOG.md
+      - run: dart pub get
+        working-directory: packages/dart
+      - run: dart run tool/embed_skills.dart --check
+        working-directory: packages/dart
+      - run: dart test
+        working-directory: packages/dart
+
+  github-release:
+    name: GitHub Release
+    needs: verify
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: dart-lang/setup-dart@6afc89df92d6eb3834022f73cd65adc8cdfcb92d # v1.8.1
+        with:
+          sdk: stable
+      - run: dart pub get
+        working-directory: scripts
+      - run: dart run scripts/build_zips.dart
+      - name: Extract release notes from CHANGELOG.md
+        env:
+          TAG: ${{ github.ref_name }}
+        run: |
+          awk -v version="${TAG#v}" '
+            /^## / { if (found) exit; if ($2 == version) { found = 1; next } }
+            found { print }
+          ' CHANGELOG.md > release-notes.md
+          test -s release-notes.md
+      - name: Create the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ github.ref_name }}
+        run: |
+          gh release create "$TAG" dist/*.zip \
+            --repo "$GITHUB_REPOSITORY" \
+            --title "$TAG" \
+            --notes-file release-notes.md \
+            --verify-tag
+
+  pub-dev:
+    name: Publish to pub.dev
+    needs: verify
+    permissions:
+      id-token: write
+    uses: dart-lang/setup-dart/.github/workflows/publish.yml@6afc89df92d6eb3834022f73cd65adc8cdfcb92d # v1.8.1
+    with:
+      working-directory: packages/dart
+      environment: pub.dev
+
+  npm:
+    name: Publish to npm
+    needs: verify
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment: npm
+    permissions:
+      contents: read
+      id-token: write
+    defaults:
+      run:
+        working-directory: packages/npm
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 24
+          registry-url: https://registry.npmjs.org
+      - name: Use an npm version that supports trusted publishing
+        run: npm install --global npm@11.21.0
+      - run: npm test
+      - name: Publish with provenance
+        run: npm publish --access public

@@ -1,0 +1,121 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  skills:
+    name: Skills, manifests and zips
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: dart-lang/setup-dart@6afc89df92d6eb3834022f73cd65adc8cdfcb92d # v1.8.1
+        with:
+          sdk: stable
+      - run: dart pub get
+        working-directory: scripts
+      - name: Validate skills
+        run: dart run scripts/validate_skills.dart
+      - name: Check versions are in sync
+        run: dart run scripts/check_versions.dart
+      - name: Build zips
+        run: dart run scripts/build_zips.dart
+      - name: Check zip layout
+        run: |
+          for zip in dist/*.zip; do
+            skill="$(basename "$zip" .zip)"
+            [ "$skill" = "mobile-dev-kit-all-skills" ] && continue
+            if unzip -Z1 "$zip" | grep -v "^$skill/"; then
+              echo "::error::$zip has entries outside $skill/"
+              exit 1
+            fi
+            unzip -Z1 "$zip" | grep -qx "$skill/SKILL.md"
+          done
+
+  plugin:
+    name: Claude Code plugin validation
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 22
+      - run: npm install --global @anthropic-ai/claude-code@2.1.299
+      - run: claude plugin validate . --strict
+
+  dart:
+    name: Dart CLI (${{ matrix.os }}, Dart ${{ matrix.sdk }})
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        sdk: [stable]
+        include:
+          - os: ubuntu-latest
+            sdk: 3.5.0
+    defaults:
+      run:
+        working-directory: packages/dart
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: dart-lang/setup-dart@6afc89df92d6eb3834022f73cd65adc8cdfcb92d # v1.8.1
+        with:
+          sdk: ${{ matrix.sdk }}
+      - run: dart pub get
+      - name: Check formatting
+        if: matrix.sdk == 'stable'
+        run: dart format --output=none --set-exit-if-changed .
+      - run: dart analyze --fatal-infos
+      - name: Check embedded skills are up to date
+        if: matrix.sdk == 'stable'
+        run: dart run tool/embed_skills.dart --check
+      - run: dart test
+      - name: Publish dry run
+        if: matrix.os == 'ubuntu-latest' && matrix.sdk == 'stable'
+        run: dart pub publish --dry-run
+
+  npm:
+    name: npm CLI (${{ matrix.os }}, Node ${{ matrix.node }})
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+        node: [18, 20, 22, 24]
+        include:
+          - os: windows-latest
+            node: 22
+          - os: macos-latest
+            node: 22
+    defaults:
+      run:
+        working-directory: packages/npm
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: ${{ matrix.node }}
+      - run: npm test
+      - run: npm pack --dry-run
