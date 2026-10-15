@@ -70,6 +70,13 @@ List<String> dartVersionConstant(String content) {
   return match == null ? const [] : [match.group(1)!];
 }
 
+List<String> jsVersionConstant(String content) {
+  final match = RegExp(
+    r'''packageVersion\s*=\s*['"](\d+\.\d+\.\d+)['"]''',
+  ).firstMatch(content);
+  return match == null ? const [] : [match.group(1)!];
+}
+
 final sources = <Source>[
   Source('.claude-plugin/plugin.json', jsonVersion),
   Source('.claude-plugin/marketplace.json', marketplaceVersions),
@@ -86,6 +93,7 @@ final sources = <Source>[
     optional: true,
   ),
   Source('packages/npm/package.json', jsonVersion, optional: true),
+  Source('packages/npm/lib/version.js', jsVersionConstant, optional: true),
 ];
 
 /// Files whose version list may be empty (the field is optional there).

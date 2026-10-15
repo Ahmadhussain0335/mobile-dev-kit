@@ -1,0 +1,47 @@
+{
+  "name": "mobile-dev-kit",
+  "version": "1.0.0",
+  "description": "Installs the mobile-dev-kit Agent Skills for Android, iOS and Flutter into AI coding tools.",
+  "keywords": [
+    "agent-skills",
+    "skills",
+    "android",
+    "ios",
+    "flutter",
+    "kotlin",
+    "swift",
+    "dart",
+    "code-review",
+    "security"
+  ],
+  "homepage": "https://github.com/Ahmadhussain0335/mobile-dev-kit#readme",
+  "bugs": {
+    "url": "https://github.com/Ahmadhussain0335/mobile-dev-kit/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ahmadhussain0335/mobile-dev-kit.git",
+    "directory": "packages/npm"
+  },
+  "license": "MIT",
+  "author": "Ahmad Hussain",
+  "type": "module",
+  "bin": {
+    "mobile-dev-kit": "bin/mobile-dev-kit.js"
+  },
+  "exports": "./lib/index.js",
+  "files": [
+    "bin/",
+    "lib/",
+    "skills/"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "copy-skills": "node scripts/copy-skills.js",
+    "prepack": "node scripts/copy-skills.js",
+    "pretest": "node scripts/copy-skills.js",
+    "test": "node --test"
+  }
+}
