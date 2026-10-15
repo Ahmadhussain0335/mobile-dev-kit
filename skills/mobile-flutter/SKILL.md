@@ -420,3 +420,6 @@ fakeAsync((async) {
 - `mobile-design-patterns` -- repository, adapter and strategy patterns in Dart
 - `mobile-kotlin`, `mobile-swift` -- native side of Pigeon channels and plugins
 - `mobile-ci-cd` -- flavors, signing, obfuscation symbols and golden tests in CI
+- `mobile-ble` -- Bluetooth Low Energy in Flutter and on the native side
+- `mobile-testing` -- cross-platform test strategy and goldens
+- `mobile-performance` -- DevTools profiling, raster and UI thread jank

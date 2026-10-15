@@ -373,3 +373,4 @@ See [Testing](references/testing.md) for Mockito, Espresso and `IdlingResource`.
 - `mobile-code-review` -- review workflow and severity levels
 - `mobile-security` -- storage, logging and network rules for legacy Java code
 - `mobile-ci-cd` -- lint and test gates in the build pipeline
+- `mobile-testing` -- cross-platform test strategy

@@ -304,3 +304,4 @@ Status values: Met, Partial, Missing, Not applicable. "Met" always has evidence.
 - `mobile-ci-cd` -- SBOM generation, dependency scanning and signed release pipelines
 - `mobile-release` -- store privacy declarations, account deletion and release process
 - `mobile-merge-request` -- describing compliance-relevant changes in the MR
+- `mobile-accessibility` -- the European Accessibility Act, which this skill does not cover

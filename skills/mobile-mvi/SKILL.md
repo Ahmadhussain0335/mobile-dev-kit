@@ -367,3 +367,5 @@ class FilterCubit extends Cubit<bool> {
 - `mobile-design-patterns` -- state, command and observer patterns behind MVI
 - `mobile-kotlin`, `mobile-swift`, `mobile-flutter` -- language rules for each platform
 - `mobile-code-review` -- reviewing stores, reducers and effects
+- `mobile-testing` -- where reducer and store tests sit in the overall test strategy
+- `mobile-kmp` -- sharing a store between Android and iOS

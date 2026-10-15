@@ -404,3 +404,4 @@ weak var delegate: ScannerDelegate?
 - `mobile-kotlin`, `mobile-java`, `mobile-swift`, `mobile-flutter` -- language idioms behind each implementation
 - `mobile-code-review` -- reviewing pattern misuse as part of a change
 - `mobile-security` -- when a pattern wraps storage, crypto or network trust decisions
+- `mobile-ble` -- the connection state machine and GATT command queue in practice

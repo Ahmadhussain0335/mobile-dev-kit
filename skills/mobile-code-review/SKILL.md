@@ -393,3 +393,6 @@ Verdict rule: any Blocker or Major means Request changes. Otherwise Approve, lis
 - `mobile-kotlin`, `mobile-java`, `mobile-swift`, `mobile-flutter` -- language rules the review applies
 - `mobile-mvvm`, `mobile-mvi`, `mobile-design-patterns` -- architecture expectations
 - `mobile-merge-request` -- MR description, commits and reviewer etiquette
+- `mobile-testing` -- what test coverage a change should come with
+- `mobile-performance` -- measuring a suspected jank, startup or memory regression
+- `mobile-accessibility` -- full accessibility audit against WCAG 2.2

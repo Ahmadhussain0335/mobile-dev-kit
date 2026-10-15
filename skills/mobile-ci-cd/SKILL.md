@@ -422,3 +422,5 @@ Deliver files, then a setup sheet. Do not invent secret values; name them and sa
 - `mobile-merge-request` -- describing pipeline changes and required manual steps in the MR
 - `mobile-code-review` -- reviewing Gradle, Fastfile and workflow changes alongside app code
 - `mobile-kotlin`, `mobile-swift`, `mobile-flutter` -- build configuration conventions per platform
+- `mobile-release` -- store readiness, tracks, phased rollout and rollback
+- `mobile-testing` -- which test layers the pipeline runs and how to shard them

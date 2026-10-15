@@ -420,3 +420,7 @@ Main dispatcher rule, fakes vs mocks and Compose tests: [Testing](references/tes
 - `mobile-security` -- storage, network, crypto and logging rules for the same code
 - `mobile-ci-cd` -- running detekt, ktlint, tests and release builds in CI
 - `mobile-java` -- legacy Java code and Java-Kotlin interop
+- `mobile-kmp` -- sharing Kotlin code with iOS
+- `mobile-ble` -- Android Bluetooth Low Energy rules
+- `mobile-testing` -- cross-platform test strategy and screenshot tests
+- `mobile-performance` -- Baseline Profiles, Macrobenchmark and Android vitals

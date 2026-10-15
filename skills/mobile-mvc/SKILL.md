@@ -350,3 +350,4 @@ Details and code: [migration to MVVM](references/migration-to-mvvm.md).
 - `mobile-design-patterns` -- coordinator, adapter, strategy and facade patterns used here
 - `mobile-swift`, `mobile-java`, `mobile-kotlin`, `mobile-flutter` -- language rules for the code being moved
 - `mobile-code-review` -- reviewing the refactoring MRs
+- `mobile-testing` -- characterization tests before a migration

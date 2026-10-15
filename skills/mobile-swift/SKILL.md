@@ -367,3 +367,7 @@ Call these out in the change summary every time, with the exact key or entitleme
 - `mobile-design-patterns` -- repository, coordinator and dependency injection patterns in Swift
 - `mobile-ci-cd` -- Xcode Cloud, signing and test plans in the pipeline
 - `mobile-kotlin`, `mobile-flutter` -- the equivalent rules for Android and Flutter
+- `mobile-kmp` -- consuming a Kotlin Multiplatform framework from Swift
+- `mobile-ble` -- CoreBluetooth rules
+- `mobile-testing` -- cross-platform test strategy and snapshot tests
+- `mobile-performance` -- Instruments, launch time and MetricKit

@@ -420,3 +420,5 @@ do {
 - `mobile-design-patterns` -- repository, factory, adapter and other building blocks used here
 - `mobile-kotlin`, `mobile-java`, `mobile-swift`, `mobile-flutter` -- language rules for each platform
 - `mobile-code-review` -- reviewing the resulting ViewModels and screens
+- `mobile-testing` -- where ViewModel tests sit in the overall test strategy
+- `mobile-kmp` -- sharing ViewModels between Android and iOS

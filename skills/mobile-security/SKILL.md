@@ -445,3 +445,5 @@ Rules for the report:
 - `mobile-ci-cd` -- wiring dependency scanning, SBOM generation and signing into the pipeline
 - `mobile-kotlin`, `mobile-java`, `mobile-swift`, `mobile-flutter` -- platform idioms behind the fixes
 - `mobile-merge-request` -- describing security fixes and permission or entitlement changes in the MR
+- `mobile-ble` -- pairing, command authentication and firmware update on the device link
+- `mobile-release` -- privacy manifests, Data safety and store privacy declarations

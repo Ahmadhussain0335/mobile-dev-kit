@@ -346,3 +346,4 @@ Severity: Must fix blocks requesting review; Should fix is expected before merge
 - `mobile-ci-cd` -- pipelines, required checks, release branches and signing
 - `mobile-security` -- when the diff touches secrets, permissions, network or storage
 - `mobile-kotlin`, `mobile-swift`, `mobile-flutter` -- build and test commands per platform
+- `mobile-release` -- release notes and readiness before merging a release branch
