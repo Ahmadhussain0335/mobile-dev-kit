@@ -1,0 +1,10 @@
+name: mobile_dev_kit_scripts
+description: Repository maintenance scripts for mobile-dev-kit (not published).
+publish_to: none
+
+environment:
+  sdk: ^3.5.0
+
+dependencies:
+  path: ^1.9.0
+  yaml: ^3.1.2
