@@ -1,15 +1,79 @@
 # mobile-dev-kit
 
-Agent Skills for Android, iOS and Flutter teams, packaged once and installable in every major AI
-coding tool: Claude Code, Claude.ai, OpenAI Codex, ChatGPT, Gemini CLI, Google Antigravity, GitHub Copilot,
-Cursor and Windsurf.
+[![CI](https://github.com/Ahmadhussain0335/mobile-dev-kit/actions/workflows/ci.yml/badge.svg)](https://github.com/Ahmadhussain0335/mobile-dev-kit/actions/workflows/ci.yml)
+[![pub package](https://img.shields.io/pub/v/mobile_dev_kit.svg)](https://pub.dev/packages/mobile_dev_kit)
+[![npm](https://img.shields.io/npm/v/mobile-dev-kit.svg)](https://www.npmjs.com/package/mobile-dev-kit)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-Each skill is a plain `SKILL.md` file in the open [Agent Skills](https://agentskills.io) format, with a
-workflow, rules with bad and good examples in Kotlin, Java, Swift and Dart, a checklist and, where it
-matters, an output format. The skill content is identical in every tool; only thin manifests differ.
+**The EU-ready, cross-platform mobile kit: one review, security, compliance and release standard for
+Android, iOS and Flutter teams.**
+
+Agent Skills packaged once and installable in every major AI coding tool: Claude Code, Claude.ai, OpenAI Codex,
+ChatGPT, Gemini CLI, Google Antigravity, GitHub Copilot, Cursor and Windsurf. Each skill is a plain `SKILL.md`
+file in the open [Agent Skills](https://agentskills.io) format, with a workflow, rules with bad and good examples
+in Kotlin, Java, Swift and Dart, a checklist and an output format. The skill content is identical in every tool;
+only thin manifests differ.
 
 **Release status:** pre-release. Installing from GitHub works now; the release zips, `npx mobile-dev-kit` and
 `dart install mobile_dev_kit` are available from v1.0.0.
+
+## Why this kit
+
+- **One standard across three platforms.** The same severity levels, review checklist and report formats for
+  Kotlin, Java, Swift and Dart, so Android, iOS and Flutter reviews read alike.
+- **EU-ready.** Gap reports against the Cyber Resilience Act, the RED delegated act with EN 18031, GDPR and the
+  European Accessibility Act, with dates and requirements checked against the Official Journal. Engineering
+  guidance, not legal advice.
+- **Connected devices.** Bluetooth Low Energy, firmware update safety and companion-app compliance, which general
+  mobile packs rarely cover.
+- **From review to release.** Code review, security audit, CI/CD, merge requests, store readiness, testing and
+  performance, plus read-only agents and slash commands for the common checks.
+- **Checked, not guessed.** Every version-specific fact links to an official source in
+  [docs/SOURCES.md](docs/SOURCES.md), a validator enforces the format, and [evals](evals/) test the skills
+  against deliberately flawed code.
+
+## How this differs from other packs
+
+This kit is complementary to the official and community packs; install them alongside it.
+
+| Pack | Focus | Use it for |
+|---|---|---|
+| [Android skills](https://developer.android.com/tools/agents/android-skills) (`android/skills`, by Google) | Specific Android workflows: XML to Compose migration, AGP 9 upgrades, Navigation 3, edge-to-edge, R8 audits | Android migrations and platform features, installed with the Android CLI |
+| [Flutter and Dart skills](https://docs.flutter.dev/ai/agent-skills) (`flutter/agent-plugins` and `dart-lang/skills`, `dart-flutter` plugin) | Flutter and Dart development tasks, rules, the Dart and Flutter MCP server and an accessibility agent | Day-to-day Flutter and Dart work with live analyzer and runtime access |
+| Large iOS packs, for example [twostraws/swiftui-agent-skill](https://github.com/twostraws/swiftui-agent-skill) and [dpearson2699/swift-ios-skills](https://github.com/dpearson2699/swift-ios-skills) | Depth on Swift, SwiftUI and Apple frameworks | Detailed Apple-platform APIs |
+| mobile-dev-kit | A shared review, security, EU compliance, BLE and release standard across Android, iOS and Flutter | Cross-platform teams, connected devices and EU-market products |
+
+Skill names here all start with `mobile-`, so they do not clash with these packs.
+
+## Example
+
+A short, deliberately flawed Kotlin file from the `kotlin-review` eval
+([evals/kotlin-review/fixture](evals/kotlin-review/fixture)):
+
+```kotlin
+class DeviceViewModel(private val repository: DeviceRepository) : ViewModel() {
+    private val _state = MutableStateFlow(DeviceUiState())
+    val state: StateFlow<DeviceUiState> = _state.asStateFlow()
+
+    fun refresh() {
+        GlobalScope.launch {
+            val devices = repository.loadDevices()
+            _state.update { it.copy(devices = devices, loading = false) }
+        }
+    }
+}
+
+object ConnectionTracker {
+    lateinit var context: Context   // set from MainActivity.onCreate
+}
+```
+
+Asked "review this before I merge it", the `mobile-code-review` skill must report the `GlobalScope` launch,
+the lifecycle-unaware `collectAsState()` in the screen and the Activity leak in `ConnectionTracker`, with
+severity, file:line and a fix, and must not flag the correct code beside them.
+
+The review output from an actual eval run will be added here after the first run of
+`claude plugin eval . --case kotlin-review`; it is not reproduced from memory.
 
 ## Skills
 
@@ -184,6 +248,11 @@ Once installed, ask in plain language; the agent picks the matching skill.
 - "This view controller is 1,500 lines. Split it."
 - "Convert this Java class to idiomatic Kotlin."
 - "Make this SwiftUI view model safe under Swift 6 strict concurrency."
+- "Is our BLE companion app ready for the CRA and EN 18031?"
+- "Why do our GATT writes sometimes get lost on Android?"
+- "Audit this checkout screen against WCAG 2.2 AA."
+- "Are we ready to submit to Google Play and the App Store?"
+- "Our app starts slowly. Measure it and tell us what to fix first."
 
 ## Repository layout
 
@@ -200,6 +269,7 @@ AGENTS.md                skill index for tools that read AGENTS.md
 packages/dart/           mobile_dev_kit on pub.dev
 packages/npm/            mobile-dev-kit on npm
 scripts/                 validator, version check, zip builder
+evals/                   claude plugin eval cases with flawed fixtures and graders
 docs/                    install guide and the documentation sources used
 ```
 
