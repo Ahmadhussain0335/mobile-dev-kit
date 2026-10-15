@@ -9,7 +9,7 @@
     {
       "name": "mobile-dev-kit",
       "source": "./",
-      "description": "Agent Skills for Android, iOS and Flutter teams: code review, OWASP MASVS security audits, CI/CD, merge requests, MVVM, MVI and MVC architecture, design patterns, and Kotlin, Java, Swift and Dart.",
+      "description": "Agent Skills for Android, iOS and Flutter teams: code review, security and EU compliance (CRA, EN 18031, GDPR), accessibility, Bluetooth LE, Kotlin Multiplatform, CI/CD, store release, testing, performance, architecture, and Kotlin, Java, Swift and Dart.",
       "category": "development",
       "tags": [
         "android",

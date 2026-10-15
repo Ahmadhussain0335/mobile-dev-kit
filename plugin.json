@@ -2,7 +2,7 @@
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "mobile-dev-kit",
   "version": "1.0.0",
-  "description": "Agent Skills for Android, iOS and Flutter teams: code review, OWASP MASVS security audits, CI/CD, merge requests, MVVM, MVI and MVC architecture, design patterns, and Kotlin, Java, Swift and Dart.",
+  "description": "Agent Skills for Android, iOS and Flutter teams: code review, security and EU compliance (CRA, EN 18031, GDPR), accessibility, Bluetooth LE, Kotlin Multiplatform, CI/CD, store release, testing, performance, architecture, and Kotlin, Java, Swift and Dart.",
   "author": {
     "name": "Ahmad Hussain",
     "url": "https://github.com/Ahmadhussain0335"
@@ -31,7 +31,7 @@
       "interface": {
         "displayName": "Mobile Dev Kit",
         "shortDescription": "Android, iOS and Flutter skills: review, security, CI/CD, architecture, languages.",
-        "longDescription": "Agent Skills for Android, iOS and Flutter teams: code review, OWASP MASVS security audits, CI/CD, merge requests, MVVM, MVI and MVC architecture, design patterns, and Kotlin, Java, Swift and Dart. Each skill gives the agent a workflow, rules with bad and good examples in Kotlin, Java, Swift and Dart, a checklist and an output format.",
+        "longDescription": "Agent Skills for Android, iOS and Flutter teams: code review, security and EU compliance (CRA, EN 18031, GDPR), accessibility, Bluetooth LE, Kotlin Multiplatform, CI/CD, store release, testing, performance, architecture, and Kotlin, Java, Swift and Dart. Each skill gives the agent a workflow, rules with bad and good examples in Kotlin, Java, Swift and Dart, a checklist and an output format.",
         "developerName": "Ahmad Hussain",
         "category": "Productivity",
         "websiteURL": "https://github.com/Ahmadhussain0335/mobile-dev-kit",
