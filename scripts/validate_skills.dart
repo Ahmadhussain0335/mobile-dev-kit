@@ -12,7 +12,10 @@ import 'package:path/path.dart' as p;
 import 'package:yaml/yaml.dart';
 
 const maxSkillLines = 500;
-const maxDescriptionLength = 1024;
+// The Agent Skills spec allows 1024 characters; this pack keeps descriptions
+// short because every description is loaded into every session.
+const maxDescriptionLength = 600;
+const targetDescriptionLength = (min: 300, max: 500);
 const maxNameLength = 64;
 const expectedLicense = 'MIT';
 const expectedPack = 'mobile-dev-kit';
@@ -67,6 +70,7 @@ final backticked = RegExp(r'`([a-z0-9-]+)`');
 class Report {
   final errors = <String>[];
   final warnings = <String>[];
+  final descriptionLengths = <String, int>{};
 
   void error(String where, String message) => errors.add('$where: $message');
   void warn(String where, String message) => warnings.add('$where: $message');
@@ -91,6 +95,10 @@ void main(List<String> args) {
     validateSkill(dir, skillNames, report);
   }
 
+  stdout.writeln('Description lengths:');
+  for (final entry in report.descriptionLengths.entries) {
+    stdout.writeln('  ${entry.value.toString().padLeft(4)}  ${entry.key}');
+  }
   for (final w in report.warnings) {
     stdout.writeln('WARN  $w');
   }
@@ -205,12 +213,22 @@ String? checkFrontmatter(
   final description = yaml['description'];
   if (description is! String || description.trim().isEmpty) {
     report.error(where, '"description" is required and must be a string');
-  } else if (description.length > maxDescriptionLength) {
-    report.error(
-      where,
-      'description is ${description.length} characters, '
-      'max $maxDescriptionLength',
-    );
+  } else {
+    report.descriptionLengths[folder] = description.length;
+    if (description.length > maxDescriptionLength) {
+      report.error(
+        where,
+        'description is ${description.length} characters, '
+        'max $maxDescriptionLength',
+      );
+    } else if (description.length < targetDescriptionLength.min ||
+        description.length > targetDescriptionLength.max) {
+      report.warn(
+        where,
+        'description is ${description.length} characters, target '
+        '${targetDescriptionLength.min}-${targetDescriptionLength.max}',
+      );
+    }
   }
 
   if (yaml['license'] != expectedLicense) {

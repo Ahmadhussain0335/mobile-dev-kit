@@ -1,6 +1,6 @@
 ---
 name: mobile-security
-description: "Audits Android, iOS and Flutter apps (Kotlin, Java, Swift, Dart) against OWASP MASVS v2 (STORAGE, CRYPTO, AUTH, NETWORK, PLATFORM, CODE, RESILIENCE, PRIVACY) and OWASP Mobile Top 10 2024. Finds hardcoded secrets in BuildConfig, Info.plist and dart-define, insecure storage (Android Keystore, Tink, DataStore, deprecated EncryptedSharedPreferences, Keychain accessibility, flutter_secure_storage), cleartext traffic, ATS and network_security_config gaps, pinning risks, exported components, deep links, App Links and Universal Links, WebView bridges, PII in logs, BiometricPrompt without CryptoObject, LocalAuthentication misuse, R8, Play Integrity, App Attest, vulnerable dependencies and SBOM. Covers MQTT and BLE IoT companion apps plus GDPR, Cyber Resilience Act and EN 18031 notes. Reports findings with MASVS IDs, severity and file:line evidence. Use for security audits, pentests, compliance reviews or changes to auth, crypto, storage, network or IPC."
+description: "Audits Android, iOS and Flutter apps against OWASP MASVS v2 and the Mobile Top 10 2024: hardcoded secrets, insecure storage (Keystore, Keychain), TLS and pinning, exported components, deep links, WebViews, biometrics, logging of personal data and supply chain. Reports findings with MASVS IDs, severity and evidence. Use for security reviews, pentest prep, or changes to auth, crypto, storage, network or IPC code."
 license: MIT
 metadata:
   author: Ahmad Hussain

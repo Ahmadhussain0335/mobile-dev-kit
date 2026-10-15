@@ -1,6 +1,6 @@
 ---
 name: mobile-flutter
-description: "Writes and refactors idiomatic modern Dart 3 and Flutter code. Covers records, patterns and switch expressions, sealed classes with exhaustive switch, class modifiers (final, base, interface, sealed, mixin), extension types, async/await, Streams (single-subscription vs broadcast, async*), Isolate.run, small const widgets, keys, context.mounted after await, disposing controllers and subscriptions, state management with Riverpod (Notifier, AsyncNotifier, ref.watch, ref.read, ref.listen, autoDispose) or Bloc and Cubit (BlocBuilder vs BlocListener), go_router redirects and deep links, Pigeon platform channels, flavors with --dart-define-from-file, analysis_options lints, performance (ListView.builder, RepaintBoundary, DevTools) and tests (package:test, widget, golden, integration_test, mocktail, fakeAsync). Use when writing, refactoring or reviewing Dart or Flutter code, adding a screen, provider, bloc, route or platform channel, or setting up lints, flavors or tests."
+description: "Writes idiomatic modern Dart 3 and Flutter: records, patterns and sealed classes, async and Streams, Isolate.run, small const widgets, keys, context.mounted after await, disposing controllers, Riverpod or Bloc, go_router, Pigeon platform channels, flavors, lints and unit, widget, golden and integration tests. Use when writing, refactoring or reviewing Dart or Flutter code, screens, providers, blocs, routes or tests."
 license: MIT
 metadata:
   author: Ahmad Hussain

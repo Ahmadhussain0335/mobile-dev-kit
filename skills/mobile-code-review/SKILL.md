@@ -1,6 +1,6 @@
 ---
 name: mobile-code-review
-description: "Reviews mobile code and diffs in Kotlin, Java, Swift and Dart for Android, iOS and Flutter apps. Checks correctness, concurrency (coroutine scopes and dispatchers, Swift actors, Sendable and @MainActor, Dart isolates), lifecycle and memory leaks (Context leaks, retain cycles, uncancelled StreamSubscriptions), UI performance (Jetpack Compose stability and recomposition, SwiftUI identity, Flutter rebuilds and const widgets), architecture boundaries, error handling, tests, accessibility and i18n. Produces severity-ranked findings (Blocker, Major, Minor, Nit) with file:line, reason and fix snippet, then an Approve or Request changes verdict. Use when asked to review a pull request, merge request, diff, branch, commit or file in an Android, iOS, Kotlin Multiplatform or Flutter codebase, or before merging mobile changes."
+description: "Reviews Kotlin, Java, Swift and Dart code and diffs in Android, iOS and Flutter apps for correctness, concurrency, lifecycle leaks, UI performance, architecture, error handling, tests, accessibility and i18n. Reports Blocker, Major, Minor and Nit findings with file:line and fix snippets, then an Approve or Request changes verdict. Use when reviewing a pull request, merge request, diff, branch or file before merging mobile code."
 license: MIT
 metadata:
   author: Ahmad Hussain

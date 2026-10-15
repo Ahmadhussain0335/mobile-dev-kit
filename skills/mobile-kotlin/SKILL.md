@@ -1,6 +1,6 @@
 ---
 name: mobile-kotlin
-description: "Writes and refactors idiomatic Kotlin for Android apps: Kotlin 2.x and the K2 compiler, null safety without !!, sealed interfaces, @JvmInline value classes for typed IDs, immutable data classes for UI state, coroutines with structured concurrency, injected dispatchers and correct CancellationException handling, Flow, StateFlow and SharedFlow with stateIn, update and collectAsStateWithLifecycle, Jetpack Compose (state hoisting, rememberSaveable, derivedStateOf, stability and strong skipping, effects, lazy list keys), Hilt, Room, KSP, kotlinx.serialization, Gradle Kotlin DSL with libs.versions.toml, the Compose compiler plugin and R8. Covers JUnit, MockK, Turbine, coroutine and Compose UI tests, detekt and ktlint. Flags Android 15 and 16 changes: edge-to-edge, predictive back, foreground service types. Use when writing Kotlin ViewModels, composables, repositories, DAOs, DI modules or build.gradle.kts files in an Android project."
+description: "Writes idiomatic modern Kotlin for Android: Kotlin 2.x, null safety, sealed and value classes, structured coroutines with injected dispatchers, Flow and StateFlow, Jetpack Compose state and stability, Hilt, Room, KSP, Gradle version catalogs, R8 and tests with MockK and Turbine, plus Android 15 and 16 changes. Use when writing or refactoring Kotlin ViewModels, composables, repositories, DAOs, DI modules or build.gradle.kts files."
 license: MIT
 metadata:
   author: Ahmad Hussain

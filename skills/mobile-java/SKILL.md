@@ -1,6 +1,6 @@
 ---
 name: mobile-java
-description: "Writes, reviews and modernizes Java code in Android apps, often legacy or mixed with Kotlin. Covers Java 17 and 21 features as D8/R8 desugaring supports them (records, switch expressions) versus library APIs needing core library desugaring or a minimum API level, immutability (final fields, unmodifiable collections, records), JSpecify @NullMarked and AndroidX nullability annotations for Kotlin interop, leak-free threading (static Context, inner-class Handler, Looper.getMainLooper, deprecated AsyncTask, ExecutorService shutdown, Future cancel), LiveData and ViewModel (setValue vs postValue, getViewLifecycleOwner), ViewBinding in onDestroyView, ListAdapter and DiffUtil, try-with-resources, equals and hashCode, incremental Java to Kotlin migration (@JvmStatic, @JvmOverloads, @JvmField) and tests with JUnit, Mockito, InstantTaskExecutorRule and Espresso IdlingResource. Use when editing, reviewing or migrating .java files in an Android project."
+description: "Writes, reviews and modernizes Java in Android apps: Java 17 and 21 features that D8 supports, immutability, JSpecify nullability for Kotlin interop, leak-free threading without static Context or inner-class Handlers, ExecutorService, LiveData, ViewBinding, ListAdapter and DiffUtil, tests with JUnit, Mockito and Espresso, and incremental migration to Kotlin. Use when editing, reviewing or migrating .java files in an Android project."
 license: MIT
 metadata:
   author: Ahmad Hussain

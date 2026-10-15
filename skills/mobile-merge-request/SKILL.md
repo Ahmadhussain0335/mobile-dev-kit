@@ -1,6 +1,6 @@
 ---
 name: mobile-merge-request
-description: "Guides the GitLab merge request and GitHub pull request workflow for Android, iOS and Flutter teams: branch naming, Conventional Commits (feat, fix, scope, breaking changes with ! and BREAKING CHANGE footer), small focused and stacked MRs, self-review, rebase vs merge, git push --force-with-lease, fixup commits with git rebase --autosquash, git range-diff, squash policy, and safe conflict resolution for lockfiles (Podfile.lock, Package.resolved, pubspec.lock), generated code, Xcode project.pbxproj and libs.versions.toml. Writes MR or PR descriptions with summary, ticket, changes, Android and iOS screenshots, testing, risk and rollback. Covers reviewer etiquette, comment prefixes (nit:, question:) and resolving threads. Use when creating a branch, writing commit messages, opening, describing, splitting, rebasing or reviewing an MR or PR, resolving merge conflicts, or answering review comments."
+description: "Guides the merge request and pull request workflow for mobile teams: branch naming, Conventional Commits, small and stacked MRs, self-review, rebase vs merge, safe conflict resolution for lockfiles, project.pbxproj and version catalogs, MR descriptions with screenshots and rollback, and reviewer etiquette. Use when creating branches, writing commits or MR descriptions, rebasing, resolving conflicts or answering review comments."
 license: MIT
 metadata:
   author: Ahmad Hussain

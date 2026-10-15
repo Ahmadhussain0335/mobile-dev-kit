@@ -1,6 +1,6 @@
 ---
 name: mobile-ci-cd
-description: "Designs, writes and hardens CI/CD pipelines for Android, iOS and Flutter apps on GitHub Actions and GitLab CI. Covers Gradle with gradle/actions/setup-gradle caching, Android lint, detekt, ktlint, unit tests and coverage gates (Kover, xccov, lcov), release signing with the keystore decoded from a base64 secret into the runner temp dir, AAB upload to Google Play with fastlane supply, iOS on macOS runners with xcodebuild, SPM caching, fastlane match, gym and pilot using an App Store Connect API key, Flutter with subosito/flutter-action, flavors, --obfuscate and --split-debug-info, Firebase App Distribution and TestFlight. Enforces least-privilege permissions, SHA-pinned actions, concurrency groups, protected environments, no secrets on fork pull requests, and build numbers from the run number. Use when asked to set up, fix, speed up or review a mobile pipeline, workflow YAML, .gitlab-ci.yml, Fastfile or store release automation."
+description: "Writes and hardens CI/CD pipelines for Android, iOS and Flutter on GitHub Actions and GitLab CI: Gradle and xcodebuild builds, lint and tests, signing from secrets, fastlane, Play and TestFlight upload, Firebase App Distribution, caching and SHA-pinned actions. Use when setting up, fixing, speeding up or reviewing a mobile pipeline, workflow YAML, .gitlab-ci.yml or Fastfile."
 license: MIT
 metadata:
   author: Ahmad Hussain

@@ -1,6 +1,6 @@
 ---
 name: mobile-mvi
-description: "Designs, implements, reviews and tests mobile screens with MVI (Model-View-Intent) on Android, iOS and Flutter. Covers intents as a sealed type, one immutable State, a pure reducer (State, Action) -> State, and side effects run outside the reducer with results fed back as actions. Kotlin with sealed interfaces, MutableStateFlow.update and Channel effects in a ViewModel store with Jetpack Compose; Swift with enums with associated values, an @MainActor @Observable Store and SwiftUI, with The Composable Architecture (TCA) as an option; Dart with sealed classes, Bloc (on<Event>, emit, bloc_concurrency transformers) and Cubit. Includes pure reducer tests, effect tests with fakes, Turbine, Swift Testing and bloc_test. Use for screens with many interacting events, debounced search, racing requests, editors, wizards or live device dashboards, when adopting or reviewing Bloc, TCA or Redux-style code, or when choosing between MVI and MVVM."
+description: "Designs, implements and tests screens with MVI on Android, iOS and Flutter: intents as sealed types, one immutable state, a pure reducer and side effects fed back as actions, using Kotlin StateFlow stores, Swift @Observable stores (TCA as an option) and Dart Bloc or Cubit. Use for screens with many interacting events, debounced search or racing requests, or when adopting or reviewing Bloc or Redux-style code."
 license: MIT
 metadata:
   author: Ahmad Hussain

@@ -1,6 +1,6 @@
 ---
 name: mobile-mvc
-description: "Applies and repairs controller-based mobile architectures: UIKit MVC in Swift (Massive View Controller, child view controllers, coordinators for navigation, separate UITableViewDataSource and UICollectionViewDiffableDataSource objects, moving networking and formatting out of the view controller), legacy Android Activity-as-controller and MVP in Java and Kotlin (Contract interface, presenter, view interface, attach and detach to avoid leaks), and the Flutter controller pattern in Dart (ChangeNotifier or ValueNotifier controllers separated from widgets, owned and disposed by State). Plans step-by-step strangler migrations from MVC or MVP to MVVM one screen at a time, with characterization tests first. Use when working on UIViewController, Activity, Fragment or presenter code, splitting a god class, reviewing legacy screens, deciding whether MVC is still fine, or migrating a legacy screen to a ViewModel."
+description: "Fixes controller-based mobile code: UIKit MVC and Massive View Controllers (child view controllers, coordinators, separate data sources), legacy Android Activity-as-controller and MVP, and Flutter controllers, plus step-by-step migration to MVVM one screen at a time. Use when working on UIViewController, Activity, Fragment or presenter code, splitting a god class, or deciding whether MVC is still fine."
 license: MIT
 metadata:
   author: Ahmad Hussain

@@ -1,6 +1,6 @@
 ---
 name: mobile-mvvm
-description: "Designs, implements and tests mobile screens with MVVM (Model-View-ViewModel) on Android, iOS and Flutter. Covers Kotlin with Jetpack Compose, ViewModel, StateFlow, stateIn with WhileSubscribed, collectAsStateWithLifecycle, SavedStateHandle and Hilt; legacy Java with LiveData, XML and ViewBinding; Swift with SwiftUI, @Observable @MainActor view models owned with @State, and SceneStorage; Dart with Riverpod Notifier and AsyncNotifier, or ChangeNotifier with provider. Enforces layers (UI, ViewModel, optional use cases, repository, data sources), one immutable UiState per screen, unidirectional data flow, one-off events as state, lifecycle-aware collection, dependency injection and ViewModel tests with runTest, Turbine, Swift Testing and ProviderContainer. Use when building a screen, adding or reviewing a ViewModel, fixing state, lifecycle or process-death bugs, migrating LiveData to StateFlow, or choosing between MVVM, MVI and MVC."
+description: "Designs, implements and tests screens with MVVM on Android (Compose, ViewModel, StateFlow, Hilt; legacy LiveData), iOS (SwiftUI, @Observable, @MainActor) and Flutter (Riverpod, ChangeNotifier): single immutable UI state, one-off events, lifecycle-aware collection and ViewModel tests. Use when building or refactoring a screen's state handling, or choosing between MVVM, MVI and MVC."
 license: MIT
 metadata:
   author: Ahmad Hussain

@@ -1,6 +1,6 @@
 ---
 name: mobile-design-patterns
-description: "Chooses, implements and reviews design patterns in Kotlin, Java, Swift and Dart for Android, iOS and Flutter apps: Repository, Factory, Builder versus named and default arguments, Singleton versus dependency injection (Hilt, Riverpod, initializer injection), Strategy, Observer with Kotlin Flow and StateFlow, Swift Combine, AsyncSequence and Observation, Dart Stream, Adapter, Decorator, Facade, State machine with sealed states and explicit transitions (BLE connection state), Command (serialized GATT queue, undo), Coordinator and Router navigation, Result and typed errors (Kotlin sealed types, Swift typed throws, Dart sealed classes), and Delegation (Kotlin by, weak Swift delegates). Includes a problem-to-pattern selection table and over-engineering warnings. Use when picking a pattern, refactoring god classes or flag-driven state, wrapping SDKs, modelling lifecycles, or when a design feels over-abstracted."
+description: "Chooses and implements design patterns in Kotlin, Java, Swift and Dart mobile code: Repository, Factory, Strategy, Observer, Adapter, Decorator, Facade, State machine, Command, Coordinator, Result types and Delegation, with a selection table and over-engineering warnings. Use when picking a pattern, refactoring god classes or flag-driven state, wrapping an SDK, or when a design feels over-abstracted."
 license: MIT
 metadata:
   author: Ahmad Hussain
