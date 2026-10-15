@@ -109,7 +109,12 @@ fun `retries after backoff`() = runTest {
 
 ## Compose UI tests
 
+Use the v2 test APIs (`androidx.compose.ui.test.junit4.v2`, ui-test 1.11 and later). The v1 factories in
+`androidx.compose.ui.test.junit4` are deprecated.
+
 ```kotlin
+import androidx.compose.ui.test.junit4.v2.createComposeRule
+
 class DevicesScreenTest {
     @get:Rule val composeRule = createComposeRule()
 
@@ -140,6 +145,10 @@ class DevicesScreenTest {
 - `createAndroidComposeRule<MainActivity>()` only when the test needs the Activity (resources, Hilt entry
   point). With Hilt, add `@HiltAndroidTest` and `HiltAndroidRule` ordered before the compose rule.
 - The rule waits for idle. Use `waitUntil { }` for asynchronous conditions instead of sleeps.
+- v2 runs composition coroutines on `StandardTestDispatcher`: launched work is queued, not run immediately.
+  Call `composeRule.waitForIdle()` or assert inside `runOnIdle { }` after triggering work. For tests that
+  also need coroutine control, prefer `runComposeUiTest { }` over mixing the rule with `runTest`, which
+  creates two clocks.
 
 ## Room
 
