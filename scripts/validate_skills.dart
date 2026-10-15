@@ -94,7 +94,10 @@ void main(List<String> args) {
   for (final dir in skillDirs) {
     validateSkill(dir, skillNames, report);
   }
-  if (args.isEmpty) checkSkillIndexes(repoRoot, skillNames, report);
+  if (args.isEmpty) {
+    checkSkillIndexes(repoRoot, skillNames, report);
+    checkPluginComponents(repoRoot, skillNames, report);
+  }
 
   stdout.writeln('Description lengths:');
   for (final entry in report.descriptionLengths.entries) {
@@ -384,5 +387,120 @@ void checkSkillIndexes(String repoRoot, Set<String> skillNames, Report report) {
     for (final extra in listed.difference(skillNames)) {
       report.error(file, 'skill table lists "$extra", which has no folder');
     }
+  }
+}
+
+/// Plugin agents (agents/*.agent.md) and commands (commands/*.md with a
+/// Gemini twin in commands/mobile-dev-kit/*.toml).
+void checkPluginComponents(
+  String repoRoot,
+  Set<String> skillNames,
+  Report report,
+) {
+  final agentsDir = Directory(p.join(repoRoot, 'agents'));
+  final commandsDir = Directory(p.join(repoRoot, 'commands'));
+  final geminiDir = Directory(p.join(commandsDir.path, 'mobile-dev-kit'));
+
+  final agentNames = <String>{};
+  if (agentsDir.existsSync()) {
+    for (final file in agentsDir.listSync().whereType<File>()) {
+      final rel = p.relative(file.path, from: repoRoot);
+      if (!file.path.endsWith('.agent.md')) {
+        report.error(rel, 'agent files must end in .agent.md');
+        continue;
+      }
+      final name = p.basename(file.path).replaceAll('.agent.md', '');
+      agentNames.add(name);
+      checkComponentFile(file, rel, name, report, requireTools: true);
+    }
+  }
+
+  final mdCommands = <String>{};
+  final tomlCommands = <String>{};
+  if (commandsDir.existsSync()) {
+    for (final file in commandsDir.listSync().whereType<File>()) {
+      final rel = p.relative(file.path, from: repoRoot);
+      if (p.extension(file.path) != '.md') {
+        report.error(rel, 'only .md commands belong in commands/');
+        continue;
+      }
+      final name = p.basenameWithoutExtension(file.path);
+      mdCommands.add(name);
+      checkComponentFile(file, rel, name, report, requireTools: false);
+    }
+  }
+  if (geminiDir.existsSync()) {
+    for (final file in geminiDir.listSync().whereType<File>()) {
+      final rel = p.relative(file.path, from: repoRoot);
+      if (p.extension(file.path) != '.toml') continue;
+      tomlCommands.add(p.basenameWithoutExtension(file.path));
+      checkAscii(file, rel, report);
+      final text = file.readAsStringSync();
+      if (!RegExp(r'^description = ".+"$', multiLine: true).hasMatch(text) ||
+          !RegExp(r"^prompt = \'\'\'", multiLine: true).hasMatch(text)) {
+        report.error(
+            rel, 'needs description = "..." and prompt = \'\'\'...\'\'\'');
+      }
+    }
+  }
+  for (final name in mdCommands.difference(tomlCommands)) {
+    report.error('commands/$name.md',
+        'no Gemini twin commands/mobile-dev-kit/$name.toml');
+  }
+  for (final name in tomlCommands.difference(mdCommands)) {
+    report.error('commands/mobile-dev-kit/$name.toml', 'no commands/$name.md');
+  }
+
+  // Every backticked mobile-* name in agents and commands must be a skill or
+  // an agent of this plugin.
+  final known = {...skillNames, ...agentNames, 'mobile-dev-kit'};
+  for (final dir in [agentsDir, commandsDir]) {
+    if (!dir.existsSync()) continue;
+    for (final file in dir.listSync(recursive: true).whereType<File>()) {
+      final rel = p.relative(file.path, from: repoRoot);
+      for (final m in RegExp(r'`(mobile-[a-z0-9-]+)`')
+          .allMatches(file.readAsStringSync())) {
+        if (!known.contains(m.group(1))) {
+          report.error(rel, 'refers to unknown skill or agent "${m.group(1)}"');
+        }
+      }
+    }
+  }
+}
+
+void checkComponentFile(
+  File file,
+  String rel,
+  String expectedName,
+  Report report, {
+  required bool requireTools,
+}) {
+  checkAscii(file, rel, report);
+  final text = file.readAsStringSync();
+  final end = text.indexOf('\n---\n', 4);
+  if (!text.startsWith('---\n') || end == -1) {
+    report.error(rel, 'missing YAML frontmatter');
+    return;
+  }
+  final Object? yaml;
+  try {
+    yaml = loadYaml(text.substring(4, end));
+  } on YamlException catch (e) {
+    report.error(rel, 'invalid frontmatter: ${e.message}');
+    return;
+  }
+  if (yaml is! YamlMap) {
+    report.error(rel, 'frontmatter must be a mapping');
+    return;
+  }
+  if (yaml['name'] != expectedName) {
+    report.error(rel, 'name must be "$expectedName" (the file name)');
+  }
+  final description = yaml['description'];
+  if (description is! String || description.trim().isEmpty) {
+    report.error(rel, 'description is required');
+  }
+  if (requireTools && yaml['tools'] == null) {
+    report.error(rel, 'agents must list tools explicitly (least privilege)');
   }
 }

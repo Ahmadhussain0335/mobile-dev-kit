@@ -121,6 +121,16 @@ when to use it, with the words a user would type, at most 1024 characters. Quote
 - AI product names outside code spans
 - broken relative links, and reference files that `SKILL.md` never links
 
+## Change agents or commands
+
+- Agents live in `agents/<name>.agent.md` (the `.agent.md` suffix is what Copilot CLI reads; Claude Code and
+  Cursor read it too). `name` must equal the file name, and `tools` must be listed explicitly; keep agents
+  read-only.
+- Each command is `commands/<name>.md` (Claude Code, Cursor) plus `commands/mobile-dev-kit/<name>.toml`
+  (Gemini CLI, which makes it `/mobile-dev-kit:<name>`). The validator fails if one of the pair is missing.
+- Pre-approve (`allowed-tools`) only the exact commands a command injects, never wildcards such as
+  `Bash(git branch *)`, which would also match destructive subcommands.
+
 ## Change the CLIs
 
 - Dart: `packages/dart`. Run `dart format .`, `dart analyze --fatal-infos` and `dart test`.
