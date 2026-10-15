@@ -1,11 +1,19 @@
 # mobile-dev-kit
 
-Command-line installer for [mobile-dev-kit](https://github.com/Ahmadhussain0335/mobile-dev-kit):
-Agent Skills (`SKILL.md`) for Android, iOS and Flutter development, copied into the folders your AI coding
-tools read.
+The EU-ready, cross-platform mobile kit: one review, security, compliance and release standard for Android,
+iOS and Flutter teams.
 
-The skills cover code review, OWASP MASVS security audits, CI/CD, merge requests, MVVM, MVI, MVC, design
-patterns, Kotlin, Java, Swift and Dart. No runtime dependencies; Node.js 18 or newer.
+Command-line installer for [mobile-dev-kit](https://github.com/Ahmadhussain0335/mobile-dev-kit):
+Agent Skills (`SKILL.md`) copied into the folders your AI coding tools read.
+
+The skills cover code review, OWASP MASVS security audits, EU compliance (Cyber Resilience Act, EN 18031,
+GDPR), accessibility (WCAG 2.2, European Accessibility Act), Bluetooth Low Energy, Kotlin Multiplatform, CI/CD,
+merge requests, store release readiness, testing, performance, MVVM, MVI, MVC, design patterns, and Kotlin, Java,
+Swift and Dart. No runtime dependencies; Node.js 18 or newer.
+
+This CLI installs the skills only. The plugin's slash commands and read-only agents come with plugin installs
+(Claude Code, Gemini CLI, Cursor, Copilot CLI); see the
+[install guide](https://github.com/Ahmadhussain0335/mobile-dev-kit/blob/main/docs/INSTALL.md).
 
 ## Usage
 
