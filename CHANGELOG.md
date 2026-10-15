@@ -7,7 +7,7 @@ One version number covers the skills, every tool manifest and the CLI packages.
 ## 1.0.0
 
 - Initial release.
-- Twelve Agent Skills: `mobile-code-review`, `mobile-security`, `mobile-ci-cd`, `mobile-merge-request`,
+- Agent Skills: `mobile-code-review`, `mobile-security`, `mobile-ci-cd`, `mobile-merge-request`,
   `mobile-mvvm`, `mobile-mvi`, `mobile-mvc`, `mobile-design-patterns`, `mobile-kotlin`, `mobile-java`,
   `mobile-swift` and `mobile-flutter`.
 - The language skills were renamed before release so every skill starts with `mobile-` and none clashes

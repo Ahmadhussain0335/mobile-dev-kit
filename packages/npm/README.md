@@ -1,6 +1,6 @@
 # mobile-dev-kit
 
-Command-line installer for [mobile-dev-kit](https://github.com/Ahmadhussain0335/mobile-dev-kit): twelve
+Command-line installer for [mobile-dev-kit](https://github.com/Ahmadhussain0335/mobile-dev-kit):
 Agent Skills (`SKILL.md`) for Android, iOS and Flutter development, copied into the folders your AI coding
 tools read.
 

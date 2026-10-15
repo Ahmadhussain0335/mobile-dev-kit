@@ -9,9 +9,14 @@
     {
       "name": "mobile-dev-kit",
       "source": "./",
-      "description": "Twelve Agent Skills for Android, iOS and Flutter developers: code review, OWASP MASVS security audits, CI/CD, merge requests, MVVM, MVI, MVC, design patterns, Kotlin, Java, Swift and Dart.",
+      "description": "Agent Skills for Android, iOS and Flutter teams: code review, OWASP MASVS security audits, CI/CD, merge requests, MVVM, MVI and MVC architecture, design patterns, and Kotlin, Java, Swift and Dart.",
       "category": "development",
-      "tags": ["android", "ios", "flutter", "mobile"]
+      "tags": [
+        "android",
+        "ios",
+        "flutter",
+        "mobile"
+      ]
     }
   ]
 }

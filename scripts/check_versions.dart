@@ -38,12 +38,17 @@ List<String> jsonField(String content, List<Object> keyPath) {
 
 List<String> jsonVersion(String content) => jsonField(content, ['version']);
 
-/// Marketplace entries normally leave `version` to plugin.json; if one sets
-/// it anyway, it must match.
+/// Marketplace files may set a version at the top level, under `metadata`, or
+/// per entry (entries normally leave it to plugin.json). Any that is set must
+/// match.
 List<String> marketplaceVersions(String content) {
   final data = jsonDecode(content) as Map<String, Object?>;
   final plugins = (data['plugins'] as List?) ?? const [];
+  final metadata = data['metadata'];
   return [
+    if (data['version'] is String) data['version'] as String,
+    if (metadata is Map && metadata['version'] is String)
+      metadata['version'] as String,
     for (final plugin in plugins)
       if (plugin is Map && plugin['version'] is String)
         plugin['version'] as String,
@@ -82,6 +87,12 @@ final sources = <Source>[
   Source('.claude-plugin/marketplace.json', marketplaceVersions),
   Source('.codex-plugin/plugin.json', jsonVersion),
   Source('.cursor-plugin/plugin.json', jsonVersion),
+  Source(
+    '.cursor-plugin/marketplace.json',
+    marketplaceVersions,
+    optional: true,
+  ),
+  Source('.agents/plugins/marketplace.json', marketplaceVersions),
   Source('plugin.json', jsonVersion),
   Source('gemini-extension.json', jsonVersion),
   Source('CHANGELOG.md', changelogVersion),
@@ -97,7 +108,11 @@ final sources = <Source>[
 ];
 
 /// Files whose version list may be empty (the field is optional there).
-const mayBeEmpty = {'.claude-plugin/marketplace.json'};
+const mayBeEmpty = {
+  '.claude-plugin/marketplace.json',
+  '.cursor-plugin/marketplace.json',
+  '.agents/plugins/marketplace.json',
+};
 
 void main() {
   final found = <String, String>{};

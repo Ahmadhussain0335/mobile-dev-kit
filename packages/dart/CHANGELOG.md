@@ -1,7 +1,7 @@
 ## 1.0.0
 
 - Initial release.
-- Embeds 12 Agent Skills: `mobile-code-review`, `mobile-security`, `mobile-ci-cd`, `mobile-merge-request`,
+- Embeds the mobile-dev-kit Agent Skills: `mobile-code-review`, `mobile-security`, `mobile-ci-cd`, `mobile-merge-request`,
   `mobile-mvvm`, `mobile-mvi`, `mobile-mvc`, `mobile-design-patterns`, `mobile-kotlin`, `mobile-java`,
   `mobile-swift`, `mobile-flutter`.
 - Commands: `list`, `targets`, `install`, `uninstall`, `doctor`, `--version`, `--help`.
