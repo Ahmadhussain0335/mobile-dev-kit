@@ -1,0 +1,76 @@
+# Runs the plugin eval suite on demand. Manual only: every run calls the model API and costs credits.
+#
+# Setup: add a repository secret ANTHROPIC_API_KEY (Settings > Secrets and variables > Actions).
+# The key reaches only the eval step through env and is never printed; GitHub masks secrets in logs.
+name: Evals
+
+on:
+  workflow_dispatch:
+    inputs:
+      case:
+        description: Case name glob (empty runs every case)
+        required: false
+        default: ""
+      runs:
+        description: Runs per case per arm
+        required: false
+        default: "3"
+      max_cost_usd:
+        description: Hard cost ceiling for the whole run, in USD
+        required: false
+        default: "10"
+      ablation:
+        description: none (with-plugin only) or with-without (adds the no-plugin baseline)
+        required: false
+        default: with-without
+        type: choice
+        options: [with-without, none]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: evals
+  cancel-in-progress: false
+
+jobs:
+  evals:
+    name: Plugin evals
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 22
+      - name: Install Claude Code
+        run: npm install --global @anthropic-ai/claude-code@2.1.299
+      - name: Run evals
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          CASE: ${{ inputs.case }}
+          RUNS: ${{ inputs.runs }}
+          MAX_COST: ${{ inputs.max_cost_usd }}
+          ABLATION: ${{ inputs.ablation }}
+        run: |
+          if [ -z "$ANTHROPIC_API_KEY" ]; then
+            echo "::error::Repository secret ANTHROPIC_API_KEY is not set"
+            exit 1
+          fi
+          set -- . --trust-plugin --no-publish --json evals-result.json \
+            --runs "$RUNS" --max-cost-usd "$MAX_COST" --ablation "$ABLATION" \
+            --model claude-sonnet-5-5 --judge-model claude-haiku-5-5 --threshold 0.8
+          if [ -n "$CASE" ]; then set -- "$@" --case "$CASE"; fi
+          claude plugin eval "$@"
+      - name: Upload results
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: eval-results
+          path: |
+            evals-result.json
+            evals/results/
+          if-no-files-found: ignore
+          retention-days: 30
