@@ -1,5 +1,5 @@
 ---
-name: dart-flutter
+name: mobile-flutter
 description: "Writes and refactors idiomatic modern Dart 3 and Flutter code. Covers records, patterns and switch expressions, sealed classes with exhaustive switch, class modifiers (final, base, interface, sealed, mixin), extension types, async/await, Streams (single-subscription vs broadcast, async*), Isolate.run, small const widgets, keys, context.mounted after await, disposing controllers and subscriptions, state management with Riverpod (Notifier, AsyncNotifier, ref.watch, ref.read, ref.listen, autoDispose) or Bloc and Cubit (BlocBuilder vs BlocListener), go_router redirects and deep links, Pigeon platform channels, flavors with --dart-define-from-file, analysis_options lints, performance (ListView.builder, RepaintBoundary, DevTools) and tests (package:test, widget, golden, integration_test, mocktail, fakeAsync). Use when writing, refactoring or reviewing Dart or Flutter code, adding a screen, provider, bloc, route or platform channel, or setting up lints, flavors or tests."
 license: MIT
 metadata:
@@ -418,5 +418,5 @@ fakeAsync((async) {
 - `mobile-security` -- secure storage, certificate pinning, deep link and logging audits
 - `mobile-mvvm`, `mobile-mvi` -- architecture behind Riverpod notifiers and Blocs
 - `mobile-design-patterns` -- repository, adapter and strategy patterns in Dart
-- `kotlin-android`, `swift-ios` -- native side of Pigeon channels and plugins
+- `mobile-kotlin`, `mobile-swift` -- native side of Pigeon channels and plugins
 - `mobile-ci-cd` -- flavors, signing, obfuscation symbols and golden tests in CI

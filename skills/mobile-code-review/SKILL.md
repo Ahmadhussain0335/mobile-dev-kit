@@ -390,6 +390,6 @@ Verdict rule: any Blocker or Major means Request changes. Otherwise Approve, lis
 ## Related skills
 
 - `mobile-security` -- deep MASVS audit when the change touches storage, network, auth or crypto
-- `kotlin-android`, `java-android`, `swift-ios`, `dart-flutter` -- language rules the review applies
+- `mobile-kotlin`, `mobile-java`, `mobile-swift`, `mobile-flutter` -- language rules the review applies
 - `mobile-mvvm`, `mobile-mvi`, `mobile-design-patterns` -- architecture expectations
 - `mobile-merge-request` -- MR description, commits and reviewer etiquette

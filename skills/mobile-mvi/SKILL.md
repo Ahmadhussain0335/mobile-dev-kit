@@ -365,5 +365,5 @@ class FilterCubit extends Cubit<bool> {
 - `mobile-mvvm` -- the simpler default for screens that do not need a reducer
 - `mobile-mvc` -- legacy UIKit and Activity-centric screens
 - `mobile-design-patterns` -- state, command and observer patterns behind MVI
-- `kotlin-android`, `swift-ios`, `dart-flutter` -- language rules for each platform
+- `mobile-kotlin`, `mobile-swift`, `mobile-flutter` -- language rules for each platform
 - `mobile-code-review` -- reviewing stores, reducers and effects

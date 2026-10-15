@@ -401,6 +401,6 @@ weak var delegate: ScannerDelegate?
 ## Related skills
 
 - `mobile-mvvm`, `mobile-mvi`, `mobile-mvc` -- the architecture these patterns plug into
-- `kotlin-android`, `java-android`, `swift-ios`, `dart-flutter` -- language idioms behind each implementation
+- `mobile-kotlin`, `mobile-java`, `mobile-swift`, `mobile-flutter` -- language idioms behind each implementation
 - `mobile-code-review` -- reviewing pattern misuse as part of a change
 - `mobile-security` -- when a pattern wraps storage, crypto or network trust decisions

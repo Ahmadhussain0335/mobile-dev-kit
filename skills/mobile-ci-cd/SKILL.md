@@ -421,4 +421,4 @@ Deliver files, then a setup sheet. Do not invent secret values; name them and sa
 - `mobile-security` -- secret storage, MASVS and supply-chain review beyond the pipeline
 - `mobile-merge-request` -- describing pipeline changes and required manual steps in the MR
 - `mobile-code-review` -- reviewing Gradle, Fastfile and workflow changes alongside app code
-- `kotlin-android`, `swift-ios`, `dart-flutter` -- build configuration conventions per platform
+- `mobile-kotlin`, `mobile-swift`, `mobile-flutter` -- build configuration conventions per platform

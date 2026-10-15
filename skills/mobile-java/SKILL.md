@@ -1,5 +1,5 @@
 ---
-name: java-android
+name: mobile-java
 description: "Writes, reviews and modernizes Java code in Android apps, often legacy or mixed with Kotlin. Covers Java 17 and 21 features as D8/R8 desugaring supports them (records, switch expressions) versus library APIs needing core library desugaring or a minimum API level, immutability (final fields, unmodifiable collections, records), JSpecify @NullMarked and AndroidX nullability annotations for Kotlin interop, leak-free threading (static Context, inner-class Handler, Looper.getMainLooper, deprecated AsyncTask, ExecutorService shutdown, Future cancel), LiveData and ViewModel (setValue vs postValue, getViewLifecycleOwner), ViewBinding in onDestroyView, ListAdapter and DiffUtil, try-with-resources, equals and hashCode, incremental Java to Kotlin migration (@JvmStatic, @JvmOverloads, @JvmField) and tests with JUnit, Mockito, InstantTaskExecutorRule and Espresso IdlingResource. Use when editing, reviewing or migrating .java files in an Android project."
 license: MIT
 metadata:
@@ -21,7 +21,7 @@ small safe steps when the team decides to.
 - Leaks, ANRs or crashes caused by Handlers, executors, Fragments, adapters or unclosed resources.
 - Planning or executing an incremental Java-to-Kotlin migration.
 
-Not for: Kotlin-first code (use `kotlin-android`), architecture choices (use `mobile-mvvm`, `mobile-mvi`).
+Not for: Kotlin-first code (use `mobile-kotlin`), architecture choices (use `mobile-mvvm`, `mobile-mvi`).
 
 ## Workflow
 
@@ -367,7 +367,7 @@ See [Testing](references/testing.md) for Mockito, Espresso and `IdlingResource`.
 
 ## Related skills
 
-- `kotlin-android` -- target idioms when migrating, and Kotlin-side interop rules
+- `mobile-kotlin` -- target idioms when migrating, and Kotlin-side interop rules
 - `mobile-mvvm` -- ViewModel and LiveData or StateFlow architecture
 - `mobile-design-patterns` -- Builder, Factory and Strategy where Java needs them
 - `mobile-code-review` -- review workflow and severity levels

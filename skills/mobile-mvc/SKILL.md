@@ -348,5 +348,5 @@ Details and code: [migration to MVVM](references/migration-to-mvvm.md).
 - `mobile-mvvm` -- target architecture when migrating
 - `mobile-mvi` -- alternative target for complex, event-heavy screens
 - `mobile-design-patterns` -- coordinator, adapter, strategy and facade patterns used here
-- `swift-ios`, `java-android`, `kotlin-android`, `dart-flutter` -- language rules for the code being moved
+- `mobile-swift`, `mobile-java`, `mobile-kotlin`, `mobile-flutter` -- language rules for the code being moved
 - `mobile-code-review` -- reviewing the refactoring MRs

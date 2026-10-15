@@ -1,5 +1,5 @@
 ---
-name: swift-ios
+name: mobile-swift
 description: "Writes and refactors idiomatic modern Swift for iOS in Swift 6 language mode with strict concurrency. Covers async/await, async let, task groups, actors and reentrancy, @MainActor, Sendable, cancellation and AsyncStream; structs vs final classes; some vs any; optionals without force unwraps; typed throws; SwiftUI with @Observable, @State, @Binding, @Bindable, @Environment, .task(id:), NavigationStack and stable ForEach identity; capture lists and retain cycles; SwiftData (@Model, @Query, ModelContext, @ModelActor, migrations); SPM modularisation and the package access modifier; Swift Testing (@Test, #expect, #require, parameterized tests) and XCTest for UI and performance tests; SwiftLint, SwiftFormat; Info.plist, entitlements and PrivacyInfo.xcprivacy. Use when writing, refactoring or migrating Swift, SwiftUI or SwiftData code, fixing Swift 6 data-race or Sendable errors, or adding tests and local packages to an Xcode project."
 license: MIT
 metadata:
@@ -366,4 +366,4 @@ Call these out in the change summary every time, with the exact key or entitleme
 - `mobile-mvvm`, `mobile-mvi` -- where view models, state and intents live
 - `mobile-design-patterns` -- repository, coordinator and dependency injection patterns in Swift
 - `mobile-ci-cd` -- Xcode Cloud, signing and test plans in the pipeline
-- `kotlin-android`, `dart-flutter` -- the equivalent rules for Android and Flutter
+- `mobile-kotlin`, `mobile-flutter` -- the equivalent rules for Android and Flutter

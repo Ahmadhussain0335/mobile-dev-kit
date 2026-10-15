@@ -1,5 +1,5 @@
 ---
-name: kotlin-android
+name: mobile-kotlin
 description: "Writes and refactors idiomatic Kotlin for Android apps: Kotlin 2.x and the K2 compiler, null safety without !!, sealed interfaces, @JvmInline value classes for typed IDs, immutable data classes for UI state, coroutines with structured concurrency, injected dispatchers and correct CancellationException handling, Flow, StateFlow and SharedFlow with stateIn, update and collectAsStateWithLifecycle, Jetpack Compose (state hoisting, rememberSaveable, derivedStateOf, stability and strong skipping, effects, lazy list keys), Hilt, Room, KSP, kotlinx.serialization, Gradle Kotlin DSL with libs.versions.toml, the Compose compiler plugin and R8. Covers JUnit, MockK, Turbine, coroutine and Compose UI tests, detekt and ktlint. Flags Android 15 and 16 changes: edge-to-edge, predictive back, foreground service types. Use when writing Kotlin ViewModels, composables, repositories, DAOs, DI modules or build.gradle.kts files in an Android project."
 license: MIT
 metadata:
@@ -23,7 +23,7 @@ reproducible from the version catalog. Prefer the boring, documented API over a 
 - Updating code for a new `targetSdk` (edge-to-edge, predictive back, foreground service rules).
 
 Not for: architecture choice (use `mobile-mvvm`, `mobile-mvi`), a security audit (use `mobile-security`),
-legacy Java maintenance (use `java-android`), or reviewing someone else's diff (use `mobile-code-review`).
+legacy Java maintenance (use `mobile-java`), or reviewing someone else's diff (use `mobile-code-review`).
 
 ## Workflow
 
@@ -419,4 +419,4 @@ Main dispatcher rule, fakes vs mocks and Compose tests: [Testing](references/tes
 - `mobile-code-review` -- reviewing Kotlin changes against these rules
 - `mobile-security` -- storage, network, crypto and logging rules for the same code
 - `mobile-ci-cd` -- running detekt, ktlint, tests and release builds in CI
-- `java-android` -- legacy Java code and Java-Kotlin interop
+- `mobile-java` -- legacy Java code and Java-Kotlin interop

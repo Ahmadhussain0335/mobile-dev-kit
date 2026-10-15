@@ -19,7 +19,8 @@ void main() {
 
   test('reports project and global installs', () async {
     await box.run(['install', '-t', 'claude']);
-    await box.run(['install', '-t', 'copilot', '--global', '-s', 'swift-ios']);
+    await box
+        .run(['install', '-t', 'copilot', '--global', '-s', 'mobile-swift']);
 
     final result = await box.run(['doctor']);
 

@@ -12,7 +12,7 @@ its workflow says to.
 - `mobile-mvi` -- MVI with reducers, effects and Bloc
 - `mobile-mvc` -- UIKit MVC, Android MVP, migration to MVVM
 - `mobile-design-patterns` -- choosing and applying design patterns without over-engineering
-- `kotlin-android` -- modern Kotlin, coroutines, Flow, Compose
-- `java-android` -- Java on Android and migration to Kotlin
-- `swift-ios` -- Swift 6, SwiftUI, SwiftData, Swift Testing
-- `dart-flutter` -- Dart 3 and Flutter
+- `mobile-kotlin` -- modern Kotlin, coroutines, Flow, Compose
+- `mobile-java` -- Java on Android and migration to Kotlin
+- `mobile-swift` -- Swift 6, SwiftUI, SwiftData, Swift Testing
+- `mobile-flutter` -- Dart 3 and Flutter

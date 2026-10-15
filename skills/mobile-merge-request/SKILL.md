@@ -345,4 +345,4 @@ Severity: Must fix blocks requesting review; Should fix is expected before merge
 - `mobile-code-review` -- reviewing the code inside the MR
 - `mobile-ci-cd` -- pipelines, required checks, release branches and signing
 - `mobile-security` -- when the diff touches secrets, permissions, network or storage
-- `kotlin-android`, `swift-ios`, `dart-flutter` -- build and test commands per platform
+- `mobile-kotlin`, `mobile-swift`, `mobile-flutter` -- build and test commands per platform

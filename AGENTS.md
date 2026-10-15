@@ -16,10 +16,10 @@ matches its description; read its references only when the skill's workflow poin
 | `skills/mobile-mvi` | MVI with intents, pure reducers, side effects, Bloc, Swift stores |
 | `skills/mobile-mvc` | UIKit MVC, Massive View Controller fixes, Android MVP, migration to MVVM |
 | `skills/mobile-design-patterns` | Repository, Strategy, State machine, Coordinator, Result types and when not to use them |
-| `skills/kotlin-android` | Idiomatic Kotlin 2.x, coroutines, Flow, Compose, Hilt, Room, Gradle, tests |
-| `skills/java-android` | Java 17/21 on Android, leak-free threading, LiveData, interop and migration to Kotlin |
-| `skills/swift-ios` | Swift 6 concurrency, SwiftUI, SwiftData, SPM, Swift Testing |
-| `skills/dart-flutter` | Dart 3, Flutter widgets, Riverpod or Bloc, go_router, Pigeon, tests |
+| `skills/mobile-kotlin` | Idiomatic Kotlin 2.x, coroutines, Flow, Compose, Hilt, Room, Gradle, tests |
+| `skills/mobile-java` | Java 17/21 on Android, leak-free threading, LiveData, interop and migration to Kotlin |
+| `skills/mobile-swift` | Swift 6 concurrency, SwiftUI, SwiftData, SPM, Swift Testing |
+| `skills/mobile-flutter` | Dart 3, Flutter widgets, Riverpod or Bloc, go_router, Pigeon, tests |
 
 ## Working on this repository
 

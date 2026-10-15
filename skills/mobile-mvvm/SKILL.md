@@ -418,5 +418,5 @@ do {
 - `mobile-mvi` -- when the screen needs a reducer, explicit intents and effects
 - `mobile-mvc` -- maintaining UIKit or Activity-centric screens
 - `mobile-design-patterns` -- repository, factory, adapter and other building blocks used here
-- `kotlin-android`, `java-android`, `swift-ios`, `dart-flutter` -- language rules for each platform
+- `mobile-kotlin`, `mobile-java`, `mobile-swift`, `mobile-flutter` -- language rules for each platform
 - `mobile-code-review` -- reviewing the resulting ViewModels and screens

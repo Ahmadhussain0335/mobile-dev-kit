@@ -44,23 +44,23 @@ void main() {
   });
 
   test('keeps files the user added and their folder', () async {
-    await box.run(['install', '-t', 'claude', '-s', 'kotlin-android']);
-    final dir = box.inProject('.claude/skills/kotlin-android');
+    await box.run(['install', '-t', 'claude', '-s', 'mobile-kotlin']);
+    final dir = box.inProject('.claude/skills/mobile-kotlin');
     File(p.join(dir, 'references', 'team-notes.md')).writeAsStringSync('ours');
 
     final result =
-        await box.run(['uninstall', '-t', 'claude', '-s', 'kotlin-android']);
+        await box.run(['uninstall', '-t', 'claude', '-s', 'mobile-kotlin']);
 
     expect(result.out, contains('removed, folder kept'));
     expect(box.filesUnder(dir), ['references/team-notes.md']);
   });
 
   test('ignores marker paths that point outside the skill folder', () async {
-    await box.run(['install', '-t', 'claude', '-s', 'java-android']);
+    await box.run(['install', '-t', 'claude', '-s', 'mobile-java']);
     final victim = File(p.join(box.root.path, 'victim.txt'))
       ..writeAsStringSync('safe');
     final markerFile =
-        File(box.inProject('.claude/skills/java-android/$markerFileName'));
+        File(box.inProject('.claude/skills/mobile-java/$markerFileName'));
     final marker =
         jsonDecode(markerFile.readAsStringSync()) as Map<String, Object?>;
     markerFile.writeAsStringSync(jsonEncode({
@@ -69,7 +69,7 @@ void main() {
     }));
 
     final result =
-        await box.run(['uninstall', '-t', 'claude', '-s', 'java-android']);
+        await box.run(['uninstall', '-t', 'claude', '-s', 'mobile-java']);
 
     expect(result.exitCode, 1);
     expect(result.err, contains('outside'));
@@ -77,8 +77,8 @@ void main() {
   });
 
   test('refuses to follow a symlinked folder inside a skill', () async {
-    await box.run(['install', '-t', 'claude', '-s', 'swift-ios']);
-    final dir = box.inProject('.claude/skills/swift-ios');
+    await box.run(['install', '-t', 'claude', '-s', 'mobile-swift']);
+    final dir = box.inProject('.claude/skills/mobile-swift');
     final refs = Directory(p.join(dir, 'references'));
     final names = refs.listSync().map((e) => p.basename(e.path)).toList();
     final elsewhere = Directory(p.join(box.root.path, 'elsewhere'))
@@ -90,7 +90,7 @@ void main() {
     Link(refs.path).createSync(elsewhere.path);
 
     final result =
-        await box.run(['uninstall', '-t', 'claude', '-s', 'swift-ios']);
+        await box.run(['uninstall', '-t', 'claude', '-s', 'mobile-swift']);
 
     expect(result.exitCode, 1);
     expect(result.err, contains('symbolic link'));

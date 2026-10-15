@@ -20,10 +20,10 @@ matters, an output format. The skill content is identical in every tool; only th
 | [`mobile-mvi`](skills/mobile-mvi/SKILL.md) | MVI with intents, pure reducers, side effects, Bloc and Swift stores, with reducer tests |
 | [`mobile-mvc`](skills/mobile-mvc/SKILL.md) | UIKit MVC without Massive View Controller, Android MVP, Flutter controllers, step-by-step migration to MVVM |
 | [`mobile-design-patterns`](skills/mobile-design-patterns/SKILL.md) | Repository, Strategy, State machine, Command, Coordinator, Result types and more, with when not to use them |
-| [`kotlin-android`](skills/kotlin-android/SKILL.md) | Kotlin 2.x, coroutines, Flow, Jetpack Compose, Hilt, Room, Gradle version catalogs, tests |
-| [`java-android`](skills/java-android/SKILL.md) | Java 17/21 on Android, leak-free threading, LiveData, Kotlin interop and incremental migration |
-| [`swift-ios`](skills/swift-ios/SKILL.md) | Swift 6 strict concurrency, SwiftUI, SwiftData, SPM modules, Swift Testing |
-| [`dart-flutter`](skills/dart-flutter/SKILL.md) | Dart 3, Flutter widgets and performance, Riverpod or Bloc, go_router, Pigeon, tests |
+| [`mobile-kotlin`](skills/mobile-kotlin/SKILL.md) | Kotlin 2.x, coroutines, Flow, Jetpack Compose, Hilt, Room, Gradle version catalogs, tests |
+| [`mobile-java`](skills/mobile-java/SKILL.md) | Java 17/21 on Android, leak-free threading, LiveData, Kotlin interop and incremental migration |
+| [`mobile-swift`](skills/mobile-swift/SKILL.md) | Swift 6 strict concurrency, SwiftUI, SwiftData, SPM modules, Swift Testing |
+| [`mobile-flutter`](skills/mobile-flutter/SKILL.md) | Dart 3, Flutter widgets and performance, Riverpod or Bloc, go_router, Pigeon, tests |
 
 ## Install
 

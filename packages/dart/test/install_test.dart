@@ -61,15 +61,22 @@ void main() {
   });
 
   test('--skill limits the install', () async {
-    await box.run(
-        ['install', '-t', 'cursor', '-s', 'swift-ios', '-s', 'dart-flutter']);
+    await box.run([
+      'install',
+      '-t',
+      'cursor',
+      '-s',
+      'mobile-swift',
+      '-s',
+      'mobile-flutter'
+    ]);
 
     expect(
       Directory(box.inProject('.cursor/skills'))
           .listSync()
           .map((e) => p.basename(e.path))
           .toSet(),
-      {'swift-ios', 'dart-flutter'},
+      {'mobile-swift', 'mobile-flutter'},
     );
   });
 
@@ -181,10 +188,11 @@ void main() {
       ..createSync();
     File(p.join(elsewhere.path, 'SKILL.md')).writeAsStringSync('linked');
     Directory(box.inProject('.claude/skills')).createSync(recursive: true);
-    Link(box.inProject('.claude/skills/swift-ios')).createSync(elsewhere.path);
+    Link(box.inProject('.claude/skills/mobile-swift'))
+        .createSync(elsewhere.path);
 
     final result = await box
-        .run(['install', '-t', 'claude', '-s', 'swift-ios', '--force']);
+        .run(['install', '-t', 'claude', '-s', 'mobile-swift', '--force']);
 
     expect(result.exitCode, 1);
     expect(result.out, contains('skipped (link/file)'));

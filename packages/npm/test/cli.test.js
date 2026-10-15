@@ -95,9 +95,9 @@ test('symbolic links are never followed or replaced', { skip: process.platform =
   fs.mkdirSync(elsewhere);
   fs.writeFileSync(path.join(elsewhere, 'SKILL.md'), 'linked');
   fs.mkdirSync(box.inProject('.claude/skills'), { recursive: true });
-  fs.symlinkSync(elsewhere, box.inProject('.claude/skills/swift-ios'));
+  fs.symlinkSync(elsewhere, box.inProject('.claude/skills/mobile-swift'));
 
-  const result = await box.run(['install', '-t', 'claude', '-s', 'swift-ios', '--force']);
+  const result = await box.run(['install', '-t', 'claude', '-s', 'mobile-swift', '--force']);
   assert.equal(result.code, 1);
   assert.match(result.out, /skipped \(link\/file\)/);
   assert.deepEqual(filesUnder(elsewhere), ['SKILL.md']);
@@ -106,11 +106,11 @@ test('symbolic links are never followed or replaced', { skip: process.platform =
 test('uninstall removes what it installed and keeps user files', async () => {
   const box = sandbox();
   await box.run(['install']);
-  fs.writeFileSync(box.inProject('.claude/skills/kotlin-android/team.md'), 'ours');
+  fs.writeFileSync(box.inProject('.claude/skills/mobile-kotlin/team.md'), 'ours');
   const result = await box.run(['uninstall']);
   assert.equal(result.code, 0, result.err);
   assert.deepEqual(filesUnder(box.inProject('.agents/skills')), []);
-  assert.deepEqual(filesUnder(box.inProject('.claude/skills')), ['kotlin-android/team.md']);
+  assert.deepEqual(filesUnder(box.inProject('.claude/skills')), ['mobile-kotlin/team.md']);
 });
 
 test('uninstall never touches folders without a marker', async () => {
@@ -125,15 +125,15 @@ test('uninstall never touches folders without a marker', async () => {
 
 test('uninstall refuses marker paths outside the skill folder and deletes nothing', async () => {
   const box = sandbox();
-  await box.run(['install', '-t', 'claude', '-s', 'java-android']);
+  await box.run(['install', '-t', 'claude', '-s', 'mobile-java']);
   const victim = path.join(box.root, 'victim.txt');
   fs.writeFileSync(victim, 'safe');
-  const dir = box.inProject('.claude/skills/java-android');
+  const dir = box.inProject('.claude/skills/mobile-java');
   const markerPath = path.join(dir, markerFileName);
   const marker = JSON.parse(fs.readFileSync(markerPath, 'utf8'));
   fs.writeFileSync(markerPath, JSON.stringify({ ...marker, files: [...marker.files, '../../../../victim.txt'] }));
 
-  const result = await box.run(['uninstall', '-t', 'claude', '-s', 'java-android']);
+  const result = await box.run(['uninstall', '-t', 'claude', '-s', 'mobile-java']);
   assert.equal(result.code, 1);
   assert.match(result.err, /outside/);
   assert.equal(fs.readFileSync(victim, 'utf8'), 'safe');

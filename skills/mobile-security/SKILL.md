@@ -442,5 +442,5 @@ Rules for the report:
 
 - `mobile-code-review` -- general correctness, concurrency and lifecycle review
 - `mobile-ci-cd` -- wiring dependency scanning, SBOM generation and signing into the pipeline
-- `kotlin-android`, `java-android`, `swift-ios`, `dart-flutter` -- platform idioms behind the fixes
+- `mobile-kotlin`, `mobile-java`, `mobile-swift`, `mobile-flutter` -- platform idioms behind the fixes
 - `mobile-merge-request` -- describing security fixes and permission or entitlement changes in the MR
