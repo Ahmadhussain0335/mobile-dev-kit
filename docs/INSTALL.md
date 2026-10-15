@@ -126,9 +126,22 @@ npx mobile-dev-kit install --tool copilot --global    # ~/.copilot/skills
 
 ## Cursor
 
-From the Cursor marketplace, once listed: **Customize**, find **Mobile Dev Kit**, **Install**.
+This repository is a single Cursor plugin: `.cursor-plugin/plugin.json` sits at the root next to `skills/`,
+which is the layout Cursor's plugin template uses for one plugin per repository.
+
+Local plugin, from GitHub:
+
+```sh
+git clone https://github.com/Ahmadhussain0335/mobile-dev-kit ~/.cursor/plugins/local/mobile-dev-kit
+```
+
+Then restart Cursor or run **Developer: Reload Window**. Update later with
+`git -C ~/.cursor/plugins/local/mobile-dev-kit pull`.
+
 Team marketplace: an admin adds this repository under **Dashboard > Plugins & MCPs > Add Marketplace >
-Import from Repo**.
+Import from Repo**; developers then install it from **Customize**.
+
+Cursor marketplace, once listed: **Customize**, find **Mobile Dev Kit**, **Install**.
 
 Skills only:
 

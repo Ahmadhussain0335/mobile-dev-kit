@@ -3,7 +3,7 @@
 Official documentation used to write the tool manifests and the CLI install targets.
 Plugin formats change often; re-check these pages before changing a manifest.
 
-Last checked: 2026-10-15.
+Last checked: 2026-10-15 (manifests rechecked before the pre-launch changes).
 
 ## Agent Skills format
 
@@ -48,6 +48,7 @@ Last checked: 2026-10-15.
 | Skills (`.agents/skills`, `.cursor/skills`, `~/.cursor/skills`, compatibility directories) | https://cursor.com/docs/skills |
 | Plugins reference (`.cursor-plugin/plugin.json`, multi-plugin `marketplace.json`, submission checklist) | https://cursor.com/docs/reference/plugins |
 | Plugins overview (install paths, single-plugin repositories) | https://cursor.com/docs/plugins |
+| Official plugin template (single plugin: keep `.cursor-plugin/plugin.json` at the root, no `marketplace.json`) | https://github.com/cursor/plugin-template |
 
 ## Google Antigravity
 

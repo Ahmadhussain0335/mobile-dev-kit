@@ -93,11 +93,15 @@ Copilot in the editor and the cloud agent read `.github/skills` (available from 
 
 ### Cursor
 
-Install **Mobile Dev Kit** from the Cursor marketplace once it is listed, or copy the skills:
+From GitHub, as a local plugin:
 
 ```sh
-npx mobile-dev-kit install --tool cursor
+git clone https://github.com/Ahmadhussain0335/mobile-dev-kit ~/.cursor/plugins/local/mobile-dev-kit
 ```
+
+Then run **Developer: Reload Window**. Teams: an admin adds this repository under
+**Dashboard > Plugins & MCPs > Add Marketplace > Import from Repo**. Skills only (available from v1.0.0):
+`npx mobile-dev-kit install --tool cursor`.
 
 ### Windsurf
 
