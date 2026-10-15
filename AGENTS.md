@@ -31,7 +31,9 @@ matches its description; read its references only when the skill's workflow poin
 ## Working on this repository
 
 - `skills/` is the single source of truth. Tool manifests (`.claude-plugin/`, `.codex-plugin/`,
-  `.cursor-plugin/`, `.agents/plugins/`, `plugin.json`, `gemini-extension.json`) only point at it.
+  `.cursor-plugin/`, `.agents/plugins/`, `gemini-extension.json`) only point at it.
+- `agents/*.agent.md` (read-only subagents) and `commands/` (slash commands: `*.md` for Claude Code and
+  Cursor, `mobile-dev-kit/*.toml` for Gemini CLI) are plugin-only; the CLIs install skills only.
 - Run `dart run scripts/validate_skills.dart` after editing any skill and fix every error.
 - Run `dart run scripts/check_versions.dart` after changing a version; all versions must match.
 - Skill text is ASCII only, tool-agnostic ("the agent"), and each `SKILL.md` stays under 500 lines.

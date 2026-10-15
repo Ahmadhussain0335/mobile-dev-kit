@@ -39,7 +39,7 @@ List<String> jsonField(String content, List<Object> keyPath) {
 List<String> jsonVersion(String content) => jsonField(content, ['version']);
 
 /// Marketplace files may set a version at the top level, under `metadata`, or
-/// per entry (entries normally leave it to plugin.json). Any that is set must
+/// per entry (entries normally leave it to the plugin manifest). Any that is set must
 /// match.
 List<String> marketplaceVersions(String content) {
   final data = jsonDecode(content) as Map<String, Object?>;
@@ -93,7 +93,6 @@ final sources = <Source>[
     optional: true,
   ),
   Source('.agents/plugins/marketplace.json', marketplaceVersions),
-  Source('plugin.json', jsonVersion),
   Source('gemini-extension.json', jsonVersion),
   Source('CHANGELOG.md', changelogVersion),
   Source('packages/dart/pubspec.yaml', pubspecVersion, optional: true),

@@ -21,8 +21,11 @@ One version number covers the skills, every tool manifest and the CLI packages.
   `mobile-release`, `mobile-testing` and `mobile-performance`.
 - Skill descriptions kept to 300-500 characters; the validator enforces it and rejects links that leave a
   skill folder.
-- Manifests for Claude Code (plugin and marketplace), OpenAI Codex, Cursor, Gemini CLI, GitHub Copilot CLI
-  and the Agent Plugins format, plus `AGENTS.md` and `GEMINI.md`.
+- Manifests for Claude Code (plugin and marketplace), OpenAI Codex (plugin and marketplace), Cursor, Gemini CLI
+  and GitHub Copilot CLI, plus `AGENTS.md` and `GEMINI.md`. No root Agent Plugins `plugin.json`: with it,
+  Copilot CLI ignores the plugin's agents and commands.
+- Plugin agents `mobile-reviewer`, `mobile-security-auditor` and `mobile-release-checker` (read-only) and the
+  commands `review`, `audit`, `mr`, `release-check` and `a11y`, with Gemini CLI TOML equivalents.
 - `mobile_dev_kit` Dart CLI on pub.dev and `mobile-dev-kit` npm CLI: `list`, `targets`, `install`,
   `uninstall` and `doctor` for eight tools, with marker-based safe uninstall.
 - Per-skill zips for Claude.ai and ChatGPT upload, attached to each GitHub Release.

@@ -10,7 +10,7 @@ Last checked: 2026-10-15 (manifests rechecked before the pre-launch changes).
 | Topic | URL |
 |---|---|
 | Agent Skills specification (`SKILL.md` frontmatter, name rules, 1024-char description, 500-line guidance) | https://agentskills.io/specification |
-| Agent Plugins specification 1.0.0 (root `plugin.json`, `$schema`, fixed `skills/` location) | https://agent-plugins.org/specification |
+| Agent Plugins specification 1.0.0 (root `plugin.json`). Not used: Agent Plugins 1.0 defines only skills and MCP servers, and Copilot CLI then ignores root `agents/` and `commands/` | https://agent-plugins.org/specification |
 
 ## Claude Code
 
@@ -337,3 +337,16 @@ Apple documentation pages were read through their JSON endpoints
 | Impeller | https://docs.flutter.dev/perf/impeller |
 | Profiling with integration tests | https://docs.flutter.dev/cookbook/testing/integration/profiling |
 | Flutter code debugging (performance overlay) | https://docs.flutter.dev/testing/code-debugging |
+
+## Plugin agents and commands
+
+| Topic | URL |
+|---|---|
+| Claude Code plugin components (commands, agents, agent frontmatter) | https://code.claude.com/docs/en/plugins/components.md |
+| Claude Code skills and commands (arguments, `!` injection, allowed-tools) | https://code.claude.com/docs/en/skills.md |
+| Claude Code subagents (tools, skills, invocation) | https://code.claude.com/docs/en/sub-agents.md |
+| Copilot CLI plugin reference (legacy vs Agent Plugins components, `.agent.md`) | https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-plugin-reference |
+| Copilot custom agents configuration (frontmatter, tool aliases Read/Grep/Glob) | https://docs.github.com/en/copilot/reference/custom-agents-configuration |
+| Cursor plugin agents and commands | https://cursor.com/docs/reference/plugins |
+| Gemini CLI custom commands (TOML, `{{args}}`, `!{...}`, namespacing) | https://geminicli.com/docs/cli/custom-commands.md |
+| Gemini CLI extension commands (`commands/` in an extension, `/a:b` names) | https://geminicli.com/docs/extensions/reference.md |

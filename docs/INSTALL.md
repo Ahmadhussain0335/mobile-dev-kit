@@ -169,6 +169,12 @@ npx skills add Ahmadhussain0335/mobile-dev-kit --list       # list skills only
 npx skills add Ahmadhussain0335/mobile-dev-kit -s mobile-security -a cursor
 ```
 
+## Plugin-only features
+
+Slash commands (`commands/`) and read-only subagents (`agents/`) come only with plugin and extension
+installs: Claude Code, Gemini CLI (commands), Cursor and Copilot CLI (agents). The CLIs, zips and
+`npx skills add` install the skills only. See the README for the command list.
+
 ## mobile-dev-kit CLIs
 
 Two CLIs with the same commands, flags and behaviour. Use whichever runtime you have.

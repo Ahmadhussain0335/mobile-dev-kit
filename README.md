@@ -144,6 +144,34 @@ npx mobile-dev-kit install       # or: npm install -g mobile-dev-kit
 Both CLIs install into `.claude/skills` and `.agents/skills` by default, which covers Claude Code, Codex,
 Gemini CLI, Cursor, Copilot and Antigravity. Run `mobile-dev-kit targets` for every tool and folder.
 
+## Commands and agents
+
+Plugin installs (Claude Code, Gemini CLI, Cursor, Copilot CLI) also add slash commands and read-only
+subagents. The `mobile-dev-kit` / `mobile_dev_kit` CLIs, zips and `npx skills` install skills only.
+
+| Command | What it does |
+|---|---|
+| `/mobile-dev-kit:review [base-branch]` | Reviews the current branch against its merge base with `mobile-code-review` |
+| `/mobile-dev-kit:audit [path]` | Security and EU compliance audit; writes `reports/security-audit-<date>.md` |
+| `/mobile-dev-kit:mr [base-branch]` | Writes the MR or PR description for the current branch |
+| `/mobile-dev-kit:release-check [android\|ios\|all]` | Google Play and App Store readiness checklist |
+| `/mobile-dev-kit:a11y <screen or module>` | Accessibility audit against WCAG 2.2 AA |
+
+| Agent | Skills it applies | Tools |
+|---|---|---|
+| `mobile-reviewer` | `mobile-code-review` | Read, Grep, Glob |
+| `mobile-security-auditor` | `mobile-security`, `mobile-eu-compliance` | Read, Grep, Glob |
+| `mobile-release-checker` | `mobile-release` | Read, Grep, Glob |
+
+The agents never run commands or edit files. The commands gather git information first; only
+`git branch --show-current`, `git status --short` and `date +%F` are pre-approved, every other command asks
+for permission as usual.
+
+| | Claude Code | Gemini CLI | Cursor | Copilot CLI | Codex |
+|---|---|---|---|---|---|
+| Commands | `/mobile-dev-kit:<name>` | `/mobile-dev-kit:<name>` (TOML) | from `commands/` | not documented for plugins | no |
+| Agents | yes | no | from `agents/` | yes (`.agent.md`) | no |
+
 ## Usage
 
 Once installed, ask in plain language; the agent picks the matching skill.
@@ -165,7 +193,8 @@ skills/                  the skills (single source of truth)
 .codex-plugin/           Codex plugin manifest
 .cursor-plugin/          Cursor plugin manifest
 .agents/plugins/         Codex marketplace
-plugin.json              Agent Plugins manifest (Codex, Copilot CLI, Cursor)
+agents/                  read-only subagents (Claude Code, Copilot CLI, Cursor)
+commands/                slash commands: *.md (Claude Code, Cursor), mobile-dev-kit/*.toml (Gemini CLI)
 gemini-extension.json    Gemini CLI extension, with GEMINI.md
 AGENTS.md                skill index for tools that read AGENTS.md
 packages/dart/           mobile_dev_kit on pub.dev
