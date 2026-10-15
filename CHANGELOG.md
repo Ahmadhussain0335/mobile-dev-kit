@@ -28,4 +28,7 @@ One version number covers the skills, every tool manifest and the CLI packages.
   commands `review`, `audit`, `mr`, `release-check` and `a11y`, with Gemini CLI TOML equivalents.
 - `mobile_dev_kit` Dart CLI on pub.dev and `mobile-dev-kit` npm CLI: `list`, `targets`, `install`,
   `uninstall` and `doctor` for eight tools, with marker-based safe uninstall.
+- Evals in `claude plugin eval` format under `evals/`: deliberately flawed fixtures with must-find and
+  must-not-flag graders for Kotlin, Swift, Dart, Java, BLE, accessibility, release, EU compliance, KMP, testing
+  and performance, plus a manual-only `evals.yml` workflow.
 - Per-skill zips for Claude.ai and ChatGPT upload, attached to each GitHub Release.

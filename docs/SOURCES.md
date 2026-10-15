@@ -350,3 +350,4 @@ Apple documentation pages were read through their JSON endpoints
 | Cursor plugin agents and commands | https://cursor.com/docs/reference/plugins |
 | Gemini CLI custom commands (TOML, `{{args}}`, `!{...}`, namespacing) | https://geminicli.com/docs/cli/custom-commands.md |
 | Gemini CLI extension commands (`commands/` in an extension, `/a:b` names) | https://geminicli.com/docs/extensions/reference.md |
+| Claude Code plugin evals (case layout, graders, add_dirs, CI flags, exit codes) | https://code.claude.com/docs/en/plugin-evals.md |

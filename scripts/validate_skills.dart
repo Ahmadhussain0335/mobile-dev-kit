@@ -97,6 +97,8 @@ void main(List<String> args) {
   if (args.isEmpty) {
     checkSkillIndexes(repoRoot, skillNames, report);
     checkPluginComponents(repoRoot, skillNames, report);
+    checkEvalCases(repoRoot, skillNames, report);
+    printEvalCoverage(repoRoot, skillNames);
   }
 
   stdout.writeln('Description lengths:');
@@ -502,5 +504,80 @@ void checkComponentFile(
   }
   if (requireTools && yaml['tools'] == null) {
     report.error(rel, 'agents must list tools explicitly (least privilege)');
+  }
+}
+
+/// Minimum number of eval cases each skill should have (see CONTRIBUTING.md).
+const minEvalsPerSkill = 2;
+
+/// Prints how many eval cases exercise each skill, judged by the skill named
+/// in each case's `skill-fired` grader. Informational only.
+void printEvalCoverage(String repoRoot, Set<String> skillNames) {
+  final evalsDir = Directory(p.join(repoRoot, 'evals'));
+  final counts = {for (final s in skillNames) s: 0};
+  if (evalsDir.existsSync()) {
+    for (final file in evalsDir.listSync(recursive: true).whereType<File>()) {
+      if (p.basename(file.path) != 'skill-fired.md') continue;
+      final text = file.readAsStringSync();
+      for (final skill in skillNames) {
+        if (text.contains('$skill"')) counts[skill] = counts[skill]! + 1;
+      }
+    }
+  }
+  final low = (counts.entries.where((e) => e.value < minEvalsPerSkill).toList()
+        ..sort((a, b) => a.key.compareTo(b.key)))
+      .map((e) => '${e.key} (${e.value})')
+      .toList();
+  stdout.writeln(
+    low.isEmpty
+        ? 'Eval coverage: every skill has at least $minEvalsPerSkill evals.'
+        : 'Eval coverage: fewer than $minEvalsPerSkill evals: ${low.join(', ')}.',
+  );
+}
+
+/// Structure of eval cases under evals/: a prompt, graders, fixtures that
+/// exist, and a skill-fired grader that names a real skill.
+void checkEvalCases(String repoRoot, Set<String> skillNames, Report report) {
+  final evalsDir = Directory(p.join(repoRoot, 'evals'));
+  if (!evalsDir.existsSync()) return;
+  for (final dir in evalsDir.listSync().whereType<Directory>()) {
+    final name = p.basename(dir.path);
+    if (name == 'results' || name == 'mocks') continue;
+    final rel = p.relative(dir.path, from: repoRoot);
+    if (!File(p.join(dir.path, 'prompt.md')).existsSync()) {
+      report.error(rel, 'eval case needs prompt.md');
+    }
+    final graders = Directory(p.join(dir.path, 'graders'));
+    final graderFiles = graders.existsSync()
+        ? graders.listSync().whereType<File>().toList()
+        : <File>[];
+    if (graderFiles.isEmpty) report.error(rel, 'eval case needs graders/');
+    final skillFired = File(p.join(graders.path, 'skill-fired.md'));
+    if (!skillFired.existsSync()) {
+      report.error(rel, 'eval case needs graders/skill-fired.md');
+    } else if (!skillNames.any(
+      (s) => skillFired.readAsStringSync().contains('$s"'),
+    )) {
+      report.error(rel, 'skill-fired.md does not name an existing skill');
+    }
+    final caseYaml = File(p.join(dir.path, 'case.yaml'));
+    if (caseYaml.existsSync()) {
+      final yaml = loadYaml(caseYaml.readAsStringSync());
+      final context = yaml is YamlMap ? yaml['context'] : null;
+      final addDirs = context is YamlMap ? context['add_dirs'] : null;
+      if (yaml is! YamlMap || yaml['name'] != name) {
+        report.error(rel, 'case.yaml name must be "$name"');
+      }
+      if (addDirs is YamlList) {
+        for (final d in addDirs) {
+          if (!Directory(p.join(dir.path, '$d')).existsSync()) {
+            report.error(rel, 'add_dirs entry "$d" does not exist');
+          }
+        }
+      }
+    }
+    for (final file in dir.listSync(recursive: true).whereType<File>()) {
+      checkAscii(file, p.relative(file.path, from: repoRoot), report);
+    }
   }
 }

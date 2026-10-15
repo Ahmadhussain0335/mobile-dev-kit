@@ -121,6 +121,30 @@ when to use it, with the words a user would type, at most 1024 characters. Quote
 - AI product names outside code spans
 - broken relative links, and reference files that `SKILL.md` never links
 
+## Evals
+
+Evals show that a skill changes what the agent does. They use the `claude plugin eval` format.
+
+- **Every new skill needs at least two evals.** The validator prints which skills have fewer.
+- A case is a folder under `evals/<case>/`:
+  - `prompt.md` -- a request phrased the way a user would type it (do not name the skill), with
+    `max_turns`, `timeout_seconds` and `allowed_tools: [Read, Glob, Grep, Skill]` in the frontmatter.
+  - `case.yaml` -- `schema_version: "1.1"`, `name`, and `context.add_dirs: [fixture]`.
+  - `fixture/` -- small, deliberately flawed code plus at least one correct "decoy" the agent must not flag.
+  - `graders/` -- one `regex` grader per must-find issue (free and stable), an `llm` grader for findings a regex
+    cannot capture, `no-false-positives.md` (an `llm` grader naming the decoys), and `skill-fired.md`
+    (`type: tool_used`, `tool: Skill`, `input_match` with the skill name).
+- Fake secrets in fixtures must not look like real keys: use values such as `fake-demo-value-not-a-real-secret`.
+- Run locally (uses your own credentials and costs money):
+
+  ```sh
+  claude plugin eval . --case kotlin-review --runs 1 --ablation none --max-cost-usd 2
+  ```
+
+- In GitHub, run the **Evals** workflow manually (Actions > Evals > Run workflow). It needs the repository secret
+  `ANTHROPIC_API_KEY` and never runs on push or pull request.
+- Results go to `evals/results/`, which is git-ignored.
+
 ## Change agents or commands
 
 - Agents live in `agents/<name>.agent.md` (the `.agent.md` suffix is what Copilot CLI reads; Claude Code and
