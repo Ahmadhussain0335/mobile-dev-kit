@@ -1,0 +1,16 @@
+description = "Write the merge request or pull request description for the current branch with the mobile-merge-request skill."
+prompt = '''
+Write the MR or PR description for the current branch. Do not push, create the MR or edit files.
+
+Current branch: !{git branch --show-current}
+Working tree: !{git status --short}
+Base branch argument (may be empty): {{args}}
+
+1. Base branch: the argument if given, otherwise the remote default branch from
+   `git symbolic-ref --short refs/remotes/origin/HEAD`, falling back to `main`.
+2. Collect `git log --oneline <base>..HEAD` and `git diff --merge-base <base> --stat`.
+3. Activate the `mobile-merge-request` skill and use its MR description template and output format. Take the
+   ticket key from the branch name if it contains one.
+4. Leave placeholders for screenshots, recordings, manual test results and rollout details instead of inventing them.
+5. Print the description as Markdown, ready to paste.
+'''

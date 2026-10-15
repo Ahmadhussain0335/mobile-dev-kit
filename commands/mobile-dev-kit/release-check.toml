@@ -1,0 +1,13 @@
+description = "Google Play and App Store readiness checklist with the mobile-release skill. Read-only."
+prompt = '''
+Check store readiness for the next release. Do not edit any file.
+
+Current branch: !{git branch --show-current}
+Platforms argument (android, ios or all; may be empty): {{args}}
+
+1. Platforms: the argument if given, otherwise every platform the repository builds.
+2. Activate the `mobile-release` skill and follow its workflow. Read the Gradle files, AndroidManifest.xml,
+   Info.plist, PrivacyInfo.xcprivacy, entitlements, pubspec.yaml, version numbers and release configuration.
+3. Items that only a store console can confirm are listed for manual checking, not marked as passed.
+4. Return the skill's readiness checklist table and the list of blockers.
+'''

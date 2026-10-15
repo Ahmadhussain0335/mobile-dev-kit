@@ -1,0 +1,17 @@
+description = "Security and EU compliance audit (mobile-security and mobile-eu-compliance). Writes reports/security-audit-<date>.md."
+prompt = '''
+Run a security and EU compliance audit and save the report. Do not change any source file.
+
+Today: !{date +%F}
+Current branch: !{git branch --show-current}
+Scope argument (may be empty): {{args}}
+
+1. Scope: the argument if given, otherwise the whole repository. Note platforms, any connected device and
+   whether the product is sold in the EU, from the README and build files.
+2. Activate the `mobile-security` skill and follow it, read-only. Then activate the `mobile-eu-compliance`
+   skill and map the results to CRA, EN 18031 and GDPR requirements, reusing the security findings as evidence.
+3. Write one Markdown report (security findings first, then the compliance gap report) to
+   `reports/security-audit-<today>.md`. Create `reports/` if needed; if the file exists, add a suffix such as `-2`.
+4. Print the file path, the count of findings per severity and the top three gaps. Say that the compliance
+   part is engineering guidance, not legal advice. Never print secrets; give file, line and a redacted prefix.
+'''

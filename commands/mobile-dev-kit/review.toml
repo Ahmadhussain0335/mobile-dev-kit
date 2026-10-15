@@ -1,0 +1,16 @@
+description = "Review the current branch against its merge base with the mobile-code-review skill. Read-only."
+prompt = '''
+Review the changes on the current branch. Do not edit any file.
+
+Current branch: !{git branch --show-current}
+Working tree: !{git status --short}
+Base branch argument (may be empty): {{args}}
+
+1. Base branch: the argument if given. Otherwise the remote default branch from
+   `git symbolic-ref --short refs/remotes/origin/HEAD`, falling back to `main`.
+2. Collect `git diff --merge-base <base> --name-only`, `git diff --merge-base <base> --stat` and the full
+   `git diff --merge-base <base>`. Mention uncommitted changes separately.
+3. Activate the `mobile-code-review` skill and follow its workflow, severity levels and output format.
+   Read every changed file in full.
+4. Return the review report, ending with the verdict.
+'''
