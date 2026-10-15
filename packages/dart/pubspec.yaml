@@ -1,0 +1,28 @@
+name: mobile_dev_kit
+description: >-
+  Installs the mobile-dev-kit Agent Skills for Android, iOS and Flutter into
+  AI coding tools: code review, security, CI/CD, architecture and languages.
+version: 1.0.0
+repository: https://github.com/Ahmadhussain0335/mobile-dev-kit
+issue_tracker: https://github.com/Ahmadhussain0335/mobile-dev-kit/issues
+topics:
+  - ai
+  - agents
+  - flutter
+  - android
+  - ios
+
+environment:
+  sdk: ^3.5.0
+
+executables:
+  mobile_dev_kit: mobile_dev_kit
+
+dependencies:
+  args: ^2.5.0
+  path: ^1.9.0
+
+dev_dependencies:
+  lints: ^5.0.0
+  test: ^1.25.0
+  yaml: ^3.1.2
