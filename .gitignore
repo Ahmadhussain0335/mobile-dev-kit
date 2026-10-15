@@ -1,0 +1,15 @@
+# IDE
+.idea/
+.vscode/
+*.iml
+.DS_Store
+
+# Build output
+dist/
+build/
+.dart_tool/
+node_modules/
+*.tgz
+
+# Local working notes
+mobile-dev-kit-prompt.md
