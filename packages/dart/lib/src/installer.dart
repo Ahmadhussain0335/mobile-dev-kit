@@ -356,6 +356,10 @@ class Installer {
   }
 }
 
+/// Values of `installedBy` this package accepts: its own, and the npm CLI's,
+/// so either tool can update or remove what the other installed.
+const _markerOwners = {'mobile_dev_kit', 'mobile-dev-kit'};
+
 class _Marker {
   const _Marker({
     required this.version,
@@ -366,7 +370,7 @@ class _Marker {
   factory _Marker.decode(String source) {
     final json = jsonDecode(source);
     if (json is! Map<String, Object?> ||
-        json['installedBy'] != 'mobile_dev_kit' ||
+        !_markerOwners.contains(json['installedBy']) ||
         json['version'] is! String ||
         json['files'] is! List) {
       throw const FormatException('Not a mobile_dev_kit marker');
