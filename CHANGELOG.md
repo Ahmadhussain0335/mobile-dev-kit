@@ -31,4 +31,6 @@ One version number covers the skills, every tool manifest and the CLI packages.
 - Evals in `claude plugin eval` format under `evals/`: deliberately flawed fixtures with must-find and
   must-not-flag graders for Kotlin, Swift, Dart, Java, BLE, accessibility, release, EU compliance, KMP, testing
   and performance, plus a manual-only `evals.yml` workflow.
+- Repository: `SECURITY.md` (private vulnerability reporting), `CODE_OF_CONDUCT.md` (Contributor Covenant 2.1),
+  issue templates and a pull request template.
 - Per-skill zips for Claude.ai and ChatGPT upload, attached to each GitHub Release.

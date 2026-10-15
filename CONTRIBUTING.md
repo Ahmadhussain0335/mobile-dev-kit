@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for helping. Skills are the product here, so most contributions are a new skill or a better rule in
+Thanks for helping. This project follows the [Code of Conduct](CODE_OF_CONDUCT.md). Skills are the product here, so most contributions are a new skill or a better rule in
 an existing one.
 
 ## Ground rules
