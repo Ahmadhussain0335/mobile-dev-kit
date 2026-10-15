@@ -68,7 +68,7 @@ Tags are mutable. A compromised tag runs attacker code with your secrets.
 
 ```yaml
 # BAD: tag can be moved to a malicious commit
-- uses: actions/checkout@v5
+- uses: actions/checkout@v7
 - uses: some-org/upload-thing@main
 
 # GOOD: immutable commit, human-readable version in the comment

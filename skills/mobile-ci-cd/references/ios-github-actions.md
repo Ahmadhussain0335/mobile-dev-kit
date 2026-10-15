@@ -50,14 +50,14 @@ jobs:
     runs-on: macos-15 # choose the image that ships the required Xcode
     timeout-minutes: 40
     steps:
-      - uses: actions/checkout@<sha> # v5
+      - uses: actions/checkout@<sha> # v7
         with:
           persist-credentials: false
 
       - name: Select Xcode
         run: sudo xcode-select -s "/Applications/Xcode_${XCODE_VERSION}.app"
 
-      - uses: actions/cache@<sha> # v4
+      - uses: actions/cache@<sha> # v6
         with:
           path: SourcePackages
           key: spm-${{ runner.os }}-${{ env.XCODE_VERSION }}-${{ hashFiles('**/Package.resolved') }}
@@ -89,7 +89,7 @@ jobs:
 
       - name: Upload result bundle
         if: failure()
-        uses: actions/upload-artifact@<sha> # v4
+        uses: actions/upload-artifact@<sha> # v7
         with:
           name: test-results
           path: ${{ runner.temp }}/Tests.xcresult
@@ -102,14 +102,14 @@ jobs:
     timeout-minutes: 60
     environment: testflight # required reviewers + tag rule v*
     steps:
-      - uses: actions/checkout@<sha> # v5
+      - uses: actions/checkout@<sha> # v7
         with:
           persist-credentials: false
 
       - name: Select Xcode
         run: sudo xcode-select -s "/Applications/Xcode_${XCODE_VERSION}.app"
 
-      - uses: actions/cache/restore@<sha> # v4
+      - uses: actions/cache/restore@<sha> # v6
         with:
           path: SourcePackages
           key: spm-${{ runner.os }}-${{ env.XCODE_VERSION }}-${{ hashFiles('**/Package.resolved') }}
@@ -135,7 +135,7 @@ jobs:
         run: bundle exec fastlane ios beta
 
       - name: Archive dSYMs
-        uses: actions/upload-artifact@<sha> # v4
+        uses: actions/upload-artifact@<sha> # v7
         with:
           name: dsyms-${{ env.BUILD_NUMBER }}
           path: build/*.dSYM.zip

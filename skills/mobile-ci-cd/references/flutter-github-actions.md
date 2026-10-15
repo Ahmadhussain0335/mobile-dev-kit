@@ -40,7 +40,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-      - uses: actions/checkout@<sha> # v5
+      - uses: actions/checkout@<sha> # v7
         with:
           persist-credentials: false
 
@@ -86,10 +86,10 @@ jobs:
           - flavor: prod
             target: appbundle
     steps:
-      - uses: actions/checkout@<sha> # v5
+      - uses: actions/checkout@<sha> # v7
         with:
           persist-credentials: false
-      - uses: actions/setup-java@<sha> # v5
+      - uses: actions/setup-java@<sha> # v6
         with:
           distribution: temurin
           java-version: '21'
@@ -131,7 +131,7 @@ jobs:
             --build-name="$VERSION_NAME"
 
       - name: Keep binaries, symbols and mapping
-        uses: actions/upload-artifact@<sha> # v4
+        uses: actions/upload-artifact@<sha> # v7
         with:
           name: android-${{ matrix.flavor }}-${{ env.VERSION_CODE }}
           path: |
@@ -143,7 +143,7 @@ jobs:
 
       # staging: testers via Firebase App Distribution
       - if: matrix.flavor == 'staging'
-        uses: google-github-actions/auth@<sha> # v2
+        uses: google-github-actions/auth@<sha> # v3
         with:
           workload_identity_provider: ${{ vars.GCP_WORKLOAD_IDENTITY_PROVIDER }}
           service_account: ${{ vars.GCP_DISTRIBUTION_SERVICE_ACCOUNT }}
@@ -188,7 +188,7 @@ Matrix notes:
     timeout-minutes: 60
     environment: testflight
     steps:
-      - uses: actions/checkout@<sha> # v5
+      - uses: actions/checkout@<sha> # v7
         with:
           persist-credentials: false
       - uses: subosito/flutter-action@<sha> # v2
@@ -217,7 +217,7 @@ Matrix notes:
         run: bundle exec fastlane ios beta
 
       - name: Keep symbols
-        uses: actions/upload-artifact@<sha> # v4
+        uses: actions/upload-artifact@<sha> # v7
         with:
           name: ios-prod-${{ env.BUILD_NUMBER }}
           path: |

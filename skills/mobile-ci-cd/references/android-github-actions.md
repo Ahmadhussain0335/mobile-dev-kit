@@ -31,18 +31,18 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
-      - uses: actions/checkout@<sha> # v5
+      - uses: actions/checkout@<sha> # v7
         with:
           persist-credentials: false
 
-      - uses: gradle/actions/wrapper-validation@<sha> # v4
+      - uses: gradle/actions/wrapper-validation@<sha> # v6
 
-      - uses: actions/setup-java@<sha> # v5
+      - uses: actions/setup-java@<sha> # v6
         with:
           distribution: temurin
           java-version: '21'
 
-      - uses: gradle/actions/setup-gradle@<sha> # v4
+      - uses: gradle/actions/setup-gradle@<sha> # v6
 
       - name: Static analysis
         run: ./gradlew ktlintCheck detekt lint --continue
@@ -52,7 +52,7 @@ jobs:
 
       - name: Upload reports
         if: always()
-        uses: actions/upload-artifact@<sha> # v4
+        uses: actions/upload-artifact@<sha> # v7
         with:
           name: verify-reports
           path: |
@@ -70,14 +70,14 @@ jobs:
       matrix:
         api-level: [29, 35]
     steps:
-      - uses: actions/checkout@<sha> # v5
+      - uses: actions/checkout@<sha> # v7
         with:
           persist-credentials: false
-      - uses: actions/setup-java@<sha> # v5
+      - uses: actions/setup-java@<sha> # v6
         with:
           distribution: temurin
           java-version: '21'
-      - uses: gradle/actions/setup-gradle@<sha> # v4
+      - uses: gradle/actions/setup-gradle@<sha> # v6
       - name: Enable KVM
         run: |
           echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
@@ -100,14 +100,14 @@ jobs:
       contents: read
       id-token: write # OIDC to Google Cloud, no stored JSON key
     steps:
-      - uses: actions/checkout@<sha> # v5
+      - uses: actions/checkout@<sha> # v7
         with:
           persist-credentials: false
-      - uses: actions/setup-java@<sha> # v5
+      - uses: actions/setup-java@<sha> # v6
         with:
           distribution: temurin
           java-version: '21'
-      - uses: gradle/actions/setup-gradle@<sha> # v4
+      - uses: gradle/actions/setup-gradle@<sha> # v6
         with:
           cache-read-only: true
 
@@ -119,7 +119,7 @@ jobs:
       - name: Build QA APK
         run: ./gradlew assembleQa -PversionCode="$VERSION_CODE"
 
-      - uses: google-github-actions/auth@<sha> # v2
+      - uses: google-github-actions/auth@<sha> # v3
         with:
           workload_identity_provider: ${{ vars.GCP_WORKLOAD_IDENTITY_PROVIDER }}
           service_account: ${{ vars.GCP_DISTRIBUTION_SERVICE_ACCOUNT }}
@@ -141,14 +141,14 @@ jobs:
     timeout-minutes: 45
     environment: play-production # required reviewers + tag rule v*
     steps:
-      - uses: actions/checkout@<sha> # v5
+      - uses: actions/checkout@<sha> # v7
         with:
           persist-credentials: false
-      - uses: actions/setup-java@<sha> # v5
+      - uses: actions/setup-java@<sha> # v6
         with:
           distribution: temurin
           java-version: '21'
-      - uses: gradle/actions/setup-gradle@<sha> # v4
+      - uses: gradle/actions/setup-gradle@<sha> # v6
         with:
           cache-read-only: true
       - uses: ruby/setup-ruby@<sha> # v1
@@ -177,7 +177,7 @@ jobs:
         run: ./gradlew bundleRelease -PversionCode="$VERSION_CODE" -PversionName="$VERSION_NAME"
 
       - name: Archive AAB and R8 mapping
-        uses: actions/upload-artifact@<sha> # v4
+        uses: actions/upload-artifact@<sha> # v7
         with:
           name: release-${{ env.VERSION_CODE }}
           path: |
