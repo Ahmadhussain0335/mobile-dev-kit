@@ -94,6 +94,7 @@ void main(List<String> args) {
   for (final dir in skillDirs) {
     validateSkill(dir, skillNames, report);
   }
+  if (args.isEmpty) checkSkillIndexes(repoRoot, skillNames, report);
 
   stdout.writeln('Description lengths:');
   for (final entry in report.descriptionLengths.entries) {
@@ -341,6 +342,34 @@ void checkOrphanReferences(
     final rel = p.relative(file.path, from: dir.path);
     if (!linked.contains(rel)) {
       report.error(where, '$rel is never linked, so it will never be loaded');
+    }
+  }
+}
+
+/// Skill lists that must name exactly the folders in skills/. Each pattern
+/// captures the skill name from one list row.
+final skillIndexes = <String, RegExp>{
+  'README.md': RegExp(r'^\| \[`([a-z0-9-]+)`\]\(skills/', multiLine: true),
+  'AGENTS.md': RegExp(r'^\| `skills/([a-z0-9-]+)`', multiLine: true),
+  'GEMINI.md': RegExp(r'^- `([a-z0-9-]+)` --', multiLine: true),
+};
+
+void checkSkillIndexes(String repoRoot, Set<String> skillNames, Report report) {
+  for (final MapEntry(key: file, value: pattern) in skillIndexes.entries) {
+    final path = File(p.join(repoRoot, file));
+    if (!path.existsSync()) {
+      report.error(file, 'file not found');
+      continue;
+    }
+    final listed = pattern
+        .allMatches(path.readAsStringSync())
+        .map((m) => m.group(1)!)
+        .toSet();
+    for (final missing in skillNames.difference(listed)) {
+      report.error(file, 'skill table is missing "$missing"');
+    }
+    for (final extra in listed.difference(skillNames)) {
+      report.error(file, 'skill table lists "$extra", which has no folder');
     }
   }
 }
