@@ -1,0 +1,40 @@
+name: Skill request
+description: Propose a new skill or a major extension of an existing one.
+labels: [skill-request]
+body:
+  - type: input
+    id: topic
+    attributes:
+      label: Topic
+      placeholder: Wear OS tiles, StoreKit 2 subscriptions, Flutter web performance
+    validations:
+      required: true
+  - type: checkboxes
+    id: platforms
+    attributes:
+      label: Platforms
+      options:
+        - label: Android (Kotlin or Java)
+        - label: iOS (Swift)
+        - label: Flutter (Dart)
+        - label: Kotlin Multiplatform
+  - type: textarea
+    id: example-prompt
+    attributes:
+      label: Example prompt
+      description: What a developer would type to trigger the skill.
+      placeholder: Review our StoreKit 2 purchase flow for edge cases before release.
+    validations:
+      required: true
+  - type: textarea
+    id: expected-output
+    attributes:
+      label: Expected output
+      description: What a good answer contains, for example findings with file:line, a checklist or a plan.
+    validations:
+      required: true
+  - type: textarea
+    id: sources
+    attributes:
+      label: Official sources
+      description: Links to the official documentation the skill should follow.

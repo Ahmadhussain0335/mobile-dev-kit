@@ -1,0 +1,46 @@
+name: Bug report
+description: A skill gives wrong advice, a manifest or install path is broken, or a CLI misbehaves.
+labels: [bug]
+body:
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - A skill gives wrong or outdated advice
+        - Plugin install (Claude Code, Codex, Gemini CLI, Copilot CLI, Cursor)
+        - Agents or slash commands
+        - mobile_dev_kit (Dart CLI)
+        - mobile-dev-kit (npm CLI)
+        - Release zips or docs
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: skill
+    attributes:
+      label: Skill, command or package
+      placeholder: mobile-code-review, /mobile-dev-kit:review, mobile_dev_kit 1.0.0
+  - type: input
+    id: tool
+    attributes:
+      label: AI tool and version
+      placeholder: Claude Code 2.1.299, Gemini CLI 0.x, Cursor 2.x
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: For wrong advice, quote the rule and link the official documentation that shows the correct behaviour.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps or prompt to reproduce
+      description: The prompt you used, or the commands you ran. Remove secrets, tokens and personal data.
