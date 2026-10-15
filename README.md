@@ -17,17 +17,23 @@ matters, an output format. The skill content is identical in every tool; only th
 |---|---|
 | [`mobile-code-review`](skills/mobile-code-review/SKILL.md) | Reviews Kotlin, Java, Swift and Dart diffs for correctness, concurrency, leaks, UI performance, architecture, tests, accessibility and i18n, with Blocker/Major/Minor/Nit findings and a verdict |
 | [`mobile-security`](skills/mobile-security/SKILL.md) | Audits against OWASP MASVS v2 and Mobile Top 10 2024: storage, crypto, auth, network, IPC, WebViews, privacy, plus GDPR, Cyber Resilience Act and EN 18031 notes |
+| [`mobile-accessibility`](skills/mobile-accessibility/SKILL.md) | Audits Android, iOS and Flutter apps against WCAG 2.2 AA and EN 301 549 and checks whether the European Accessibility Act applies, with automated checks and a screen-reader test script |
 | [`mobile-eu-compliance`](skills/mobile-eu-compliance/SKILL.md) | Gap reports against the EU Cyber Resilience Act, the RED delegated act with EN 18031 and GDPR for apps and connected-device companion apps; engineering guidance, not legal advice |
 | [`mobile-ci-cd`](skills/mobile-ci-cd/SKILL.md) | GitHub Actions and GitLab CI for Android, iOS and Flutter: signing, store upload, caching, SHA-pinned actions, secret hygiene |
+| [`mobile-release`](skills/mobile-release/SKILL.md) | Store readiness for Google Play and the App Store: target API level, Data safety, privacy manifests, account deletion, signing, staged and phased rollout, rollback |
+| [`mobile-testing`](skills/mobile-testing/SKILL.md) | Cross-platform test strategy: test pyramid, fakes over mocks, Compose UI tests, XCUITest, integration_test, screenshot tests, flaky-test rules, CI sharding |
+| [`mobile-performance`](skills/mobile-performance/SKILL.md) | Measure-first performance work: startup, jank, memory leaks, app size, battery and network, with Macrobenchmark, Perfetto, Instruments, DevTools, MetricKit and Android vitals |
 | [`mobile-merge-request`](skills/mobile-merge-request/SKILL.md) | Branch naming, Conventional Commits, MR descriptions, stacked MRs, rebasing, conflict resolution, review etiquette |
 | [`mobile-mvvm`](skills/mobile-mvvm/SKILL.md) | MVVM with Compose and StateFlow, LiveData, SwiftUI with `@Observable`, Riverpod; when to pick MVVM, MVI or MVC |
 | [`mobile-mvi`](skills/mobile-mvi/SKILL.md) | MVI with intents, pure reducers, side effects, Bloc and Swift stores, with reducer tests |
 | [`mobile-mvc`](skills/mobile-mvc/SKILL.md) | UIKit MVC without Massive View Controller, Android MVP, Flutter controllers, step-by-step migration to MVVM |
 | [`mobile-design-patterns`](skills/mobile-design-patterns/SKILL.md) | Repository, Strategy, State machine, Command, Coordinator, Result types and more, with when not to use them |
+| [`mobile-ble`](skills/mobile-ble/SKILL.md) | Bluetooth Low Energy on Android, iOS and Flutter: permissions, GATT operation queues, MTU, bonding, reconnects, background limits, framing and CRC, safe firmware updates |
 | [`mobile-kotlin`](skills/mobile-kotlin/SKILL.md) | Kotlin 2.x, coroutines, Flow, Jetpack Compose, Hilt, Room, Gradle version catalogs, tests |
 | [`mobile-java`](skills/mobile-java/SKILL.md) | Java 17/21 on Android, leak-free threading, LiveData, Kotlin interop and incremental migration |
 | [`mobile-swift`](skills/mobile-swift/SKILL.md) | Swift 6 strict concurrency, SwiftUI, SwiftData, SPM modules, Swift Testing |
 | [`mobile-flutter`](skills/mobile-flutter/SKILL.md) | Dart 3, Flutter widgets and performance, Riverpod or Bloc, go_router, Pigeon, tests |
+| [`mobile-kmp`](skills/mobile-kmp/SKILL.md) | Kotlin Multiplatform and Compose Multiplatform: source sets, interfaces over expect/actual, shared ViewModels, Ktor, Room or SQLDelight, coroutines on iOS, XCFramework and SPM |
 
 ## Install
 
