@@ -13,3 +13,6 @@ node_modules/
 
 # Local working notes
 mobile-dev-kit-prompt.md
+
+# Local agent settings
+.claude/settings.local.json

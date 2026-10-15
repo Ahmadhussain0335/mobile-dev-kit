@@ -1,0 +1,6 @@
+{
+  "name": "mobile-dev-kit",
+  "version": "1.0.0",
+  "description": "Twelve Agent Skills for Android, iOS and Flutter developers: code review, OWASP MASVS security audits, CI/CD, merge requests, MVVM, MVI, MVC, design patterns, Kotlin, Java, Swift and Dart.",
+  "contextFileName": "GEMINI.md"
+}

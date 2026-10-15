@@ -1,0 +1,14 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "mobile-dev-kit",
+  "version": "1.0.0",
+  "description": "Twelve Agent Skills for Android, iOS and Flutter developers: code review, OWASP MASVS security audits, CI/CD, merge requests, MVVM, MVI, MVC, design patterns, Kotlin, Java, Swift and Dart.",
+  "author": {
+    "name": "Ahmad Hussain",
+    "url": "https://github.com/Ahmadhussain0335"
+  },
+  "homepage": "https://github.com/Ahmadhussain0335/mobile-dev-kit",
+  "repository": "https://github.com/Ahmadhussain0335/mobile-dev-kit",
+  "license": "MIT",
+  "keywords": ["android", "ios", "flutter", "kotlin", "java", "swift", "dart", "code-review", "security", "masvs", "ci-cd", "mvvm", "mvi", "agent-skills"]
+}

@@ -1,0 +1,20 @@
+{
+  "name": "ahmadhussain-mobile",
+  "interface": {
+    "displayName": "Ahmad Hussain Mobile"
+  },
+  "plugins": [
+    {
+      "name": "mobile-dev-kit",
+      "source": {
+        "source": "local",
+        "path": "./"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Coding"
+    }
+  ]
+}

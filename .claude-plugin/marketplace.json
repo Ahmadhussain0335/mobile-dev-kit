@@ -1,0 +1,17 @@
+{
+  "name": "ahmadhussain-mobile",
+  "description": "Mobile development skills for Android, iOS and Flutter by Ahmad Hussain.",
+  "owner": {
+    "name": "Ahmad Hussain",
+    "url": "https://github.com/Ahmadhussain0335"
+  },
+  "plugins": [
+    {
+      "name": "mobile-dev-kit",
+      "source": "./",
+      "description": "Twelve Agent Skills for Android, iOS and Flutter developers: code review, OWASP MASVS security audits, CI/CD, merge requests, MVVM, MVI, MVC, design patterns, Kotlin, Java, Swift and Dart.",
+      "category": "development",
+      "tags": ["android", "ios", "flutter", "mobile"]
+    }
+  ]
+}

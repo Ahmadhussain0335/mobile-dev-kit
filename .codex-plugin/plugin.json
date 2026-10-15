@@ -1,0 +1,27 @@
+{
+  "name": "mobile-dev-kit",
+  "version": "1.0.0",
+  "description": "Twelve Agent Skills for Android, iOS and Flutter developers: code review, OWASP MASVS security audits, CI/CD, merge requests, MVVM, MVI, MVC, design patterns, Kotlin, Java, Swift and Dart.",
+  "author": {
+    "name": "Ahmad Hussain",
+    "url": "https://github.com/Ahmadhussain0335"
+  },
+  "homepage": "https://github.com/Ahmadhussain0335/mobile-dev-kit",
+  "repository": "https://github.com/Ahmadhussain0335/mobile-dev-kit",
+  "license": "MIT",
+  "keywords": ["android", "ios", "flutter", "kotlin", "java", "swift", "dart", "code-review", "security", "masvs", "ci-cd", "mvvm", "mvi", "agent-skills"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Mobile Dev Kit",
+    "shortDescription": "Android, iOS and Flutter skills: review, security, CI/CD, architecture, languages.",
+    "longDescription": "Twelve Agent Skills for Android, iOS and Flutter developers: code review, OWASP MASVS security audits, CI/CD, merge requests, MVVM, MVI, MVC, design patterns, Kotlin, Java, Swift and Dart. Each skill gives the agent a workflow, rules with bad and good examples in Kotlin, Java, Swift and Dart, a checklist and an output format.",
+    "developerName": "Ahmad Hussain",
+    "category": "Coding",
+    "websiteURL": "https://github.com/Ahmadhussain0335/mobile-dev-kit",
+    "defaultPrompt": [
+      "Review this merge request for bugs, leaks and threading issues",
+      "Audit this app against OWASP MASVS",
+      "Set up GitHub Actions CI for this Android app"
+    ]
+  }
+}
