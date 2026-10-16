@@ -32,7 +32,8 @@ void main() {
     test('project path is inside the project root', () {
       expect(
         claude.resolve(global: false, projectRoot: '/work/app', home: '/h'),
-        p.join('/work/app', '.claude', 'skills'),
+        // resolve() normalizes, which on Windows also turns '/' into '\\'.
+        p.normalize(p.join('/work/app', '.claude', 'skills')),
       );
     });
 
@@ -40,7 +41,7 @@ void main() {
       expect(
         targetByName('antigravity')!
             .resolve(global: true, projectRoot: '/work/app', home: '/h'),
-        p.join('/h', '.gemini', 'config', 'skills'),
+        p.normalize(p.join('/h', '.gemini', 'config', 'skills')),
       );
     });
   });
