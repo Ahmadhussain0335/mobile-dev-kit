@@ -22,3 +22,7 @@ packages/dart/pubspec.lock
 
 # Eval run output
 evals/results/
+
+# Launch drafts and prompt (local only)
+launch/
+mobile-dev-kit-launch-prompt.md
