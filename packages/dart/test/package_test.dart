@@ -25,18 +25,38 @@ void main() {
     }
   });
 
-  final skillsDir = p.join('..', '..', 'skills');
+  // Compares content, not formatting, so it runs on every supported SDK. The
+  // exact generated file is checked by `dart run tool/embed_skills.dart --check`
+  // in CI on the stable SDK, because formatter output differs between versions.
+  final skillsDir = Directory(p.join('..', '..', 'skills'));
   test(
     'embedded skills match the repository skills folder',
-    () async {
-      final result = await Process.run(
-        Platform.resolvedExecutable,
-        ['run', 'tool/embed_skills.dart', '--check'],
+    () {
+      final onDisk = <String, Map<String, String>>{};
+      for (final dir in skillsDir.listSync().whereType<Directory>()) {
+        if (!File(p.join(dir.path, 'SKILL.md')).existsSync()) continue;
+        onDisk[p.basename(dir.path)] = {
+          for (final file in dir.listSync(recursive: true).whereType<File>())
+            if (!p.basename(file.path).startsWith('.'))
+              p.split(p.relative(file.path, from: dir.path)).join('/'):
+                  file.readAsStringSync().replaceAll('\r\n', '\n'),
+        };
+      }
+
+      final embedded = {for (final s in bundledSkills) s.name: s.files};
+      expect(
+        embedded.keys.toSet(),
+        onDisk.keys.toSet(),
+        reason: 'run: dart run tool/embed_skills.dart',
       );
-      expect(result.exitCode, 0, reason: '${result.stdout}${result.stderr}');
+      for (final name in onDisk.keys) {
+        expect(
+          embedded[name],
+          onDisk[name],
+          reason: '$name is stale; run: dart run tool/embed_skills.dart',
+        );
+      }
     },
-    skip:
-        Directory(skillsDir).existsSync() ? false : 'not inside the repository',
-    timeout: const Timeout(Duration(minutes: 2)),
+    skip: skillsDir.existsSync() ? false : 'not inside the repository',
   );
 }
