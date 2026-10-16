@@ -4,7 +4,7 @@ description: "Writes idiomatic modern Swift for iOS: Swift 6 strict concurrency 
 license: MIT
 metadata:
   author: Ahmad Hussain
-  version: "1.0.0"
+  version: "1.0.1"
   pack: mobile-dev-kit
 ---
 

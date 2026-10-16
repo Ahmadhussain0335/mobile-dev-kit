@@ -1,6 +1,6 @@
 {
   "name": "mobile-dev-kit",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Agent Skills for Android, iOS and Flutter teams: code review, security and EU compliance (CRA, EN 18031, GDPR), accessibility, Bluetooth LE, Kotlin Multiplatform, CI/CD, store release, testing, performance, architecture, and Kotlin, Java, Swift and Dart.",
   "author": {
     "name": "Ahmad Hussain",

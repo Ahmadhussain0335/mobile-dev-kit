@@ -4,7 +4,7 @@ description: "Guides the merge request and pull request workflow for mobile team
 license: MIT
 metadata:
   author: Ahmad Hussain
-  version: "1.0.0"
+  version: "1.0.1"
   pack: mobile-dev-kit
 ---
 

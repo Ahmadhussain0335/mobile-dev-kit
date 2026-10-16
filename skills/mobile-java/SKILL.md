@@ -4,7 +4,7 @@ description: "Writes, reviews and modernizes Java in Android apps: Java 17 and 2
 license: MIT
 metadata:
   author: Ahmad Hussain
-  version: "1.0.0"
+  version: "1.0.1"
   pack: mobile-dev-kit
 ---
 

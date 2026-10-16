@@ -4,7 +4,7 @@ description: "Designs, implements and reviews Bluetooth Low Energy code in Andro
 license: MIT
 metadata:
   author: Ahmad Hussain
-  version: "1.0.0"
+  version: "1.0.1"
   pack: mobile-dev-kit
 ---
 

@@ -4,7 +4,7 @@ description: "Reviews Kotlin, Java, Swift and Dart code and diffs in Android, iO
 license: MIT
 metadata:
   author: Ahmad Hussain
-  version: "1.0.0"
+  version: "1.0.1"
   pack: mobile-dev-kit
 ---
 

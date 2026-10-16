@@ -4,7 +4,7 @@ description: "Checks store readiness of Android, iOS and Flutter apps for Google
 license: MIT
 metadata:
   author: Ahmad Hussain
-  version: "1.0.0"
+  version: "1.0.1"
   pack: mobile-dev-kit
 ---
 

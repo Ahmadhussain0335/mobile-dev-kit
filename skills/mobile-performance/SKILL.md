@@ -4,7 +4,7 @@ description: "Measures and fixes Android, iOS and Flutter app performance: start
 license: MIT
 metadata:
   author: Ahmad Hussain
-  version: "1.0.0"
+  version: "1.0.1"
   pack: mobile-dev-kit
 ---
 

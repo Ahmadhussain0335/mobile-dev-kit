@@ -1,3 +1,9 @@
+## 1.0.1
+
+- Fixed: the symbolic-link check before writing or deleting files now also stops at the filesystem root, so an
+  unexpected path can never make it loop.
+- Tests now pass on Windows and on Dart 3.5, the minimum supported SDK.
+
 ## 1.0.0
 
 - Initial release.

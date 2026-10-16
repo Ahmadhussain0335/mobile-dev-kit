@@ -1,6 +1,6 @@
 {
   "name": "mobile-dev-kit",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Installs the mobile-dev-kit Agent Skills for Android, iOS and Flutter into AI coding tools.",
   "keywords": [
     "agent-skills",

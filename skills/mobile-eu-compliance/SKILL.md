@@ -4,7 +4,7 @@ description: "Assesses Android, iOS, Flutter and connected-device companion apps
 license: MIT
 metadata:
   author: Ahmad Hussain
-  version: "1.0.0"
+  version: "1.0.1"
   pack: mobile-dev-kit
 ---
 

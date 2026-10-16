@@ -4,7 +4,7 @@ description: "Audits and fixes accessibility in Android, iOS and Flutter apps ag
 license: MIT
 metadata:
   author: Ahmad Hussain
-  version: "1.0.0"
+  version: "1.0.1"
   pack: mobile-dev-kit
 ---
 

@@ -4,7 +4,7 @@ description: "Writes idiomatic modern Dart 3 and Flutter: records, patterns and 
 license: MIT
 metadata:
   author: Ahmad Hussain
-  version: "1.0.0"
+  version: "1.0.1"
   pack: mobile-dev-kit
 ---
 

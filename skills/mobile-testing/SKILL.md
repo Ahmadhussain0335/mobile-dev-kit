@@ -4,7 +4,7 @@ description: "Plans, writes and reviews test strategies for Android, iOS and Flu
 license: MIT
 metadata:
   author: Ahmad Hussain
-  version: "1.0.0"
+  version: "1.0.1"
   pack: mobile-dev-kit
 ---
 

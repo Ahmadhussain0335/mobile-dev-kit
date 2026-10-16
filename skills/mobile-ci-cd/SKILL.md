@@ -4,7 +4,7 @@ description: "Writes and hardens CI/CD pipelines for Android, iOS and Flutter on
 license: MIT
 metadata:
   author: Ahmad Hussain
-  version: "1.0.0"
+  version: "1.0.1"
   pack: mobile-dev-kit
 ---
 

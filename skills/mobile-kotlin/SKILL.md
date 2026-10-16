@@ -4,7 +4,7 @@ description: "Writes idiomatic modern Kotlin for Android: Kotlin 2.x, null safet
 license: MIT
 metadata:
   author: Ahmad Hussain
-  version: "1.0.0"
+  version: "1.0.1"
   pack: mobile-dev-kit
 ---
 

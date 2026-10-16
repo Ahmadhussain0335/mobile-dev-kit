@@ -4,6 +4,13 @@ All notable changes to this project are documented in this file.
 The format is based on Keep a Changelog, and this project uses Semantic Versioning.
 One version number covers the skills, every tool manifest and the CLI packages.
 
+## 1.0.1
+
+- Fixed: the CLIs' symbolic-link check before writing or deleting files now also stops at the filesystem root,
+  so an unexpected path can never make it loop.
+- Tests: target path tests pass on Windows, and the embedded-skills test compares content so it passes on the
+  minimum Dart SDK (3.5). No change to the skills themselves.
+
 ## 1.0.0
 
 - Initial release.

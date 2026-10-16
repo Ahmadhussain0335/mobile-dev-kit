@@ -4,7 +4,7 @@ description: "Audits Android, iOS and Flutter apps against OWASP MASVS v2 and th
 license: MIT
 metadata:
   author: Ahmad Hussain
-  version: "1.0.0"
+  version: "1.0.1"
   pack: mobile-dev-kit
 ---
 

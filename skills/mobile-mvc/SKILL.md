@@ -4,7 +4,7 @@ description: "Fixes controller-based mobile code: UIKit MVC and Massive View Con
 license: MIT
 metadata:
   author: Ahmad Hussain
-  version: "1.0.0"
+  version: "1.0.1"
   pack: mobile-dev-kit
 ---
 
