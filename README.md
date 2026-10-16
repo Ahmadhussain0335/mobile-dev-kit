@@ -14,9 +14,6 @@ file in the open [Agent Skills](https://agentskills.io) format, with a workflow,
 in Kotlin, Java, Swift and Dart, a checklist and an output format. The skill content is identical in every tool;
 only thin manifests differ.
 
-**Release status:** pre-release. Installing from GitHub works now; the release zips, `npx mobile-dev-kit` and
-`dart install mobile_dev_kit` are available from v1.0.0.
-
 ## Why this kit
 
 - **One standard across three platforms.** The same severity levels, review checklist and report formats for
