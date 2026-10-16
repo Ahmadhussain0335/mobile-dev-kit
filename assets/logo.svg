@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" role="img" aria-labelledby="title">
+  <title id="title">mobile-dev-kit</title>
+  <rect width="256" height="256" rx="56" fill="#0d1117"/>
+  <rect x="78" y="40" width="100" height="176" rx="18" fill="none" stroke="#e6edf3" stroke-width="12"/>
+  <line x1="112" y1="190" x2="144" y2="190" stroke="#e6edf3" stroke-width="10" stroke-linecap="round"/>
+  <polyline points="102,118 122,138 156,100" fill="none" stroke="#3fb950" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
