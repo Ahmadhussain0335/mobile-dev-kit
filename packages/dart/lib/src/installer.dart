@@ -327,7 +327,7 @@ class Installer {
       throw StateError('Refusing to touch $path: outside $dir');
     }
     for (var parent = p.dirname(path);
-        parent != dir;
+        parent != dir && p.dirname(parent) != parent;
         parent = p.dirname(parent)) {
       if (FileSystemEntity.isLinkSync(parent)) {
         throw StateError('Refusing to touch $path: $parent is a symbolic link');

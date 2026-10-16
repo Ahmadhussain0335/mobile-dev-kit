@@ -223,7 +223,7 @@ export function inside(dir, rel) {
   if (relative === '' || relative.startsWith('..') || path.isAbsolute(relative)) {
     throw new Error(`Refusing to touch ${target}: outside ${dir}`);
   }
-  for (let parent = path.dirname(target); parent !== dir; parent = path.dirname(parent)) {
+  for (let parent = path.dirname(target); parent !== dir && path.dirname(parent) !== parent; parent = path.dirname(parent)) {
     if (entryType(parent) === 'link') {
       throw new Error(`Refusing to touch ${target}: ${parent} is a symbolic link`);
     }
